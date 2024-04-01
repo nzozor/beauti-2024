@@ -1,0 +1,47 @@
+<div class="outer">
+  <div *ngIf="treatmentShowcase$ | async as treatment" class="container">
+    <div class="header">
+      <button
+        (click)="goToParent()"
+        class="arrow-button main-button"
+        mat-stroked-button
+      >
+        <i class="arrow left"></i>
+        <h4>
+          {{ activeTreatmentList[activeTreatmentList.length - 1] }}
+        </h4>
+      </button>
+    </div>
+    <div class="title">
+      <h1>
+        {{ treatment.title }}
+      </h1>
+      <button
+        (click)="openBooking()"
+        class="main-button book-now"
+        color="primary"
+        mat-flat-button
+      >
+        Book now
+      </button>
+    </div>
+    <img
+      [src]="imageUrl"
+      alt="Treatment showcase | Beauti Skin Clinic | Oval, Brixton London"
+      class="js-lazy-image"
+    />
+    <div class="showcase-content">
+      <div [innerHTML]="treatment.Content | markdownToHtml"></div>
+    </div>
+  </div>
+  <div class="book-treatment-fixed">
+    <button
+      (click)="openBooking()"
+      class="main-button mobile"
+      color="primary"
+      mat-flat-button
+    >
+      Book now
+    </button>
+  </div>
+</div>

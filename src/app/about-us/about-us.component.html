@@ -1,0 +1,11 @@
+<img-showcase [images]="images"></img-showcase>
+<div class="container about-us-page">
+  <div
+    *ngIf="aboutUs$ | async as aboutUsContent"
+    [innerHTML]="aboutUsContent.cke"
+    class="container about-us-page"
+  ></div>
+  <div class="beauti-room">
+    <img height="667" ngSrc="assets/beauti-room-medium.jpg" priority="true" width="1000" alt="Beauti Skin CLinic Room"/>
+  </div>
+</div>

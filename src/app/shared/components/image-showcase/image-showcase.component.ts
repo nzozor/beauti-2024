@@ -2,7 +2,6 @@ import {AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, Input, Vie
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {register} from 'swiper/element/bundle';
-import {v4 as uuidv4} from 'uuid';
 
 
 export interface ICarouselImg {
@@ -24,12 +23,10 @@ export class ImageShowcaseComponent implements AfterViewInit {
   @Input() images: ICarouselImg[] = [];
   @Input() styles: any;
   @Input() gridRows: number = 1;
-  @ViewChild('swiperRef') swiperRef: ElementRef;
-  uuid;
+  @ViewChild('swiperRef') swiperRef!: ElementRef;
 
   constructor() {
     register();
-    this.uuid = uuidv4().replace(/-/g, '').substring(0, 16);
   }
 
   ngAfterViewInit() {
@@ -78,6 +75,10 @@ export class ImageShowcaseComponent implements AfterViewInit {
 
     Object.assign(this.swiperRef.nativeElement, params);
 
-    this.swiperRef.nativeElement.initialize();
+    if (typeof this.swiperRef.nativeElement.initialize === 'function') {
+      this.swiperRef.nativeElement.initialize();
+    } else {
+      console.warn('initialize method does not exist on the swiperRef.nativeElement object');
+    }
   }
 }

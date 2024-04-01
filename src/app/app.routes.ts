@@ -4,26 +4,28 @@ import {PageNotFoundComponent} from "./shared/components/page-not-found/page-not
 
 export const routes: Routes = [  {
   path: '',
-  // component: HomePageComponent
   loadComponent: () => import('./home-page/home-page.component').then(x => x.HomePageComponent)
 },
   {
     path: 'treatments',
-    loadComponent: () => import('./treatments/treatments/treatments.component').then(x => x.TreatmentsComponent)
+    loadComponent: () => import('./treatments/treatments/treatments.component').then(x => x.TreatmentsComponent),
   },
-  // {
-  //   path: 'consultation',
-  //   loadChildren: () => import('./modules/consultation/consultation.module').then(m => m.ConsultationModule)
-  // },
-  // {
-  //   path: 'contact',
-  //   loadChildren: () => import('./modules/contact/contact.module').then(m => m.ContactModule)
-  // },
-  // {
-  //   path: 'about-us',
-  //   loadChildren: () => import('./modules/about-us/about-us.module').then(m => m.AboutUsModule)
-  // },
-  // {path: '**', component: PageNotFoundComponent}
+  {
+    path: 'treatments/:slug',
+    loadComponent: () => import('./treatments/treatment-showcase/treatment-showcase.component').then(x => x.TreatmentShowcaseComponent)
+  },
+  {
+    path: 'about-us',
+    loadComponent: () => import('./about-us/about-us.component').then(x => x.AboutUsComponent)
+  },
+  {
+    path: 'consultation',
+    loadComponent: () => import('./consultation/consultation/consultation.component').then(x => x.ConsultationComponent)
+  },
+  {
+    path: 'contact',
+    loadComponent: () => import('./contact/contact.component').then(x => x.ContactComponent)
+  },
 ];
 
 

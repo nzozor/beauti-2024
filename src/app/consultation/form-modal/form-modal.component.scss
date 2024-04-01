@@ -1,0 +1,60 @@
+:host {
+  p, h3 {
+    color: white;
+  }
+
+  h3 {
+    line-height: 45px;
+
+  }
+
+  p {
+    font-size: 23px;
+    font-weight: 100;
+  }
+}
+
+::ng-deep mat-dialog-container {
+  background: #B0B5C4 !important;
+  padding: 80px !important;
+  max-width: 736px;
+  text-align: center;
+}
+
+::ng-deep mat-icon.custom-icon {
+  color: red;
+}
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  //opacity: 0.3;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: white;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+}
+

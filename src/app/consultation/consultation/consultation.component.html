@@ -1,0 +1,95 @@
+<div class="container consultation-page">
+  <h1>Beauti Skin Clinic Consultation</h1>
+
+  <div class="img-container">
+    <img alt="Interior Beauti Skin Clinic" class="interior-image" height="571"
+         ngSrc="assets/consultation/interior-beauti-skin-clinic.jpg" priority="true" width="857">
+  </div>
+  <div
+    *ngIf="consultationContent$ | async as consultationContent"
+
+    [innerHTML]="consultationContent.cke | bypassHtmlSecurity"
+  >
+  </div>
+  <h2> Book A Consultation</h2>
+  <h3 class="booking">Consultation costs £50 and it’s redeemable if a treatment is booked on the same day</h3>
+
+  <form (ngSubmit)="onFormSubmit()" [formGroup]="consultationForm" id="consultation-form">
+    <div class="row">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>First Name:</mat-label>
+          <input formControlName="firstName" id="first-name" matInput required type="text">
+        </mat-form-field>
+
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name:</mat-label>
+          <input formControlName="lastName" id="last-name" matInput required type="text">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Contact number:</mat-label>
+          <input formControlName="contactNumber" id="number" matInput required type="text">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Email:</mat-label>
+          <input formControlName="email" id="email" matInput required type="email">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Message:</mat-label>
+          <textarea formControlName="message" matInput
+                    placeholder="A short description of your concern and availability" rows="10"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row first-time-consumer">
+      <div>
+        <mat-checkbox class="example-margin" formControlName="firstTimeCustomer">I am a first-time customer
+        </mat-checkbox>
+      </div>
+    </div>
+    <div *ngIf="displayFunnelInput" class="row">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>How did you hear about us?</mat-label>
+          <mat-select formControlName="funnel">
+            <mat-option value="Passing by">Passing by</mat-option>
+            <mat-option value="Search engine">Search engine</mat-option>
+            <mat-option value="Social media">Social media</mat-option>
+            <mat-option value="Treatwell">Treatwell</mat-option>
+            <mat-option value="Word of mouth">Word of mouth</mat-option>
+            <mat-option value="Other">Other</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row submit">
+      <div>
+        <button [disabled]="sendingFormInfo" class="main-button mat-primary mat-flat-button"
+                color="primary" form="consultation-form" type="submit">Send
+        </button>
+        <div *ngIf="!consultationForm.valid && consultationForm.dirty && sendBtnStatus === 'clicked'"
+             class="error-hint">
+          <mat-hint color="warn">Please fill all the required fields</mat-hint>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

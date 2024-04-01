@@ -1,0 +1,90 @@
+@import '../../../scss/palette';
+
+.container {
+  padding: 80px 0;
+}
+
+.header {
+  display: inline;
+  padding-top: 85px;
+
+  .arrow-button {
+    border: none;
+    background-color: transparent;
+    width: auto;
+    padding-left: 0;
+    text-transform: none !important;
+
+    ::ng-deep span {
+      display: flex;
+      align-items: center;
+    }
+
+    h4 {
+      margin: 0;
+      font-size: 17px;
+      margin-left: 16px;
+    }
+
+    .arrow {
+      border: solid $grey-black;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 9px;
+    }
+
+    .right {
+      transform: rotate(-45deg);
+    }
+
+    .left {
+      transform: rotate(135deg);
+    }
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin: 45px 0 30px;
+
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    display: none;
+    margin-bottom: 0;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding-top: 50px;
+  }
+
+  .arrow-button,
+  .title {
+    margin-left: 5px;
+    text-transform: none !important;
+  }
+
+  .header {
+    padding-top: 50px;
+  }
+
+  .showcase-content p {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .book-now {
+    display: none;
+  }
+}
