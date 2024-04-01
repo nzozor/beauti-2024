@@ -1,0 +1,28 @@
+<div>
+  <app-quote [position]="'left'"></app-quote>
+  <div class="slogan">
+    <h1>Beauti Skin Clinic</h1>
+    ,
+    <h2>
+      your local skin and<br />
+      beauty specialist, Italian standard.
+    </h2>
+  </div>
+</div>
+<button
+  mat-flat-button
+  color="primary"
+  class="main-button book"
+  (click)="openBooking($event)"
+>
+  Book now
+</button>
+<button
+  mat-flat-button
+  color="primary"
+  class="main-button treatments"
+  routerLink="/treatments"
+  class="treatment-button"
+>
+  View Treatments
+</button>

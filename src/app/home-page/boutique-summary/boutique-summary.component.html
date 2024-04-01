@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="container">
+    <div *ngIf="homepageSummary$ | async as summary">
+      {{summary.content}}
+    </div>
+    <button
+      (click)="sendGtaData('view treatment')"
+      class="main-button"
+      color="primary"
+      mat-flat-button
+      routerLink="/treatments"
+    >
+      View Treatments
+    </button>
+
+    <button
+      (click)="sendGtaData('book a consultation')"
+      class="main-button"
+      color="primary"
+      mat-flat-button
+      routerLink="/consultation"
+    >
+      Book Consultation
+    </button>
+
+  </div>
+</div>

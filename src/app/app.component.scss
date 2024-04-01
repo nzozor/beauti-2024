@@ -1,0 +1,49 @@
+@import '../scss/palette';
+
+.header-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: all .8s;
+  z-index: 1;
+  border-bottom: 1px solid $blue-type1;
+}
+
+.sticky {
+  background: white;
+  z-index: 4;
+}
+
+.parallax {
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: 767px) {
+    min-height: 263px;
+  }
+}
+
+#scene {
+  img {
+    width: 100%;
+  }
+}
+
+.mat-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+
+  ::ng-deep {
+    svg {
+      circle {
+        stroke: $beauti-grey;
+      }
+    }
+  }
+}

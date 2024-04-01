@@ -1,0 +1,44 @@
+  <swiper-container #swiperRef  class="swiper-container" init="false" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true">
+    <ng-container *ngIf="homageBanners$ | async as banners">
+    <swiper-slide *ngFor="let slide of banners; index as i" class="slide" lazy="true">
+      <div>
+        <img
+          *ngIf="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
+          [loading]="i !== 0? 'lazy' : undefined"
+          [ngSrc]="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
+          [priority]="i === 0"
+          alt="Beauti Promo"
+          fill="true"
+        />
+        <div class="slider-title">
+
+          <h3>{{ slide.title1 }}</h3>
+          <h1 class="semi-bold">{{ slide.title2 }}</h1>
+
+          <h2 class="light">{{ slide.title3 }}</h2>
+          <h5 *ngIf="slide?.title4" class="light">{{ slide.title4 }}</h5>
+        </div>
+        <button
+          *ngIf="slide.findOutMoreUrl"
+          [routerLink]="slide.findOutMoreUrl"
+          class="main-button treatments"
+          color="primary"
+          mat-flat-button
+        >
+          FIND OUT MORE
+        </button>
+        <button
+          (click)="openBooking()"
+          *ngIf="!slide.findOutMoreUrl"
+          class="main-button treatments"
+          color="primary"
+          mat-flat-button
+        >
+          BOOK NOW
+        </button>
+        <div class="asterisk">{{ slide.asterisk }}</div>
+      </div>
+    </swiper-slide>
+    </ng-container>
+  </swiper-container>
+

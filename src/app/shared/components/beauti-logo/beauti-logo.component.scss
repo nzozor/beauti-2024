@@ -1,0 +1,16 @@
+@import './../../../../scss/palette';
+
+svg {
+  display: block;
+  width: 150px;
+  max-height: 31px;
+
+
+  g {
+    transition: fill .8s;
+
+    &.sticky {
+      fill: $grey-black;
+    }
+  }
+}

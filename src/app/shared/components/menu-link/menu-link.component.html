@@ -1,0 +1,7 @@
+<div class="main-menu">
+  <ul [@openClose]="" *ngIf="active">
+    <li *ngFor="let item of mainMenu">
+      <a [routerLink]="item.route" [routerLinkActive]="['active']" (click)="closeMenuLink()">{{ item.title }}</a>
+    </li>
+  </ul>
+</div>

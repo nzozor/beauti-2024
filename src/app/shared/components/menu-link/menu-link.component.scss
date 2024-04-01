@@ -1,0 +1,65 @@
+@import '../../../../scss/palette';
+
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: white;
+  z-index: -13;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
+  &>div.main-menu {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: all .2s;
+    display: flex;
+    justify-content: center;
+
+    &.hidden {
+      display: none;
+    }
+
+    ul {
+      padding: 0;
+      position: relative;
+      top: 10px;
+      margin-top: 15%;
+
+      li {
+        list-style-type: none;
+        text-align: center;
+        margin-bottom: 20px;
+
+        a {
+          &:hover {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+
+  .main-menu a {
+    text-transform: uppercase;
+    color: $grey-black;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    line-height: 5rem;
+    text-decoration: none;
+    transition: color .2s;
+
+    @media (max-width: 1023px) {
+      font-size: 30px;
+      line-height: 60px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 20px;
+      line-height: 40px;
+    }
+  }
+}

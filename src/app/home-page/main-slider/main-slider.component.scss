@@ -1,0 +1,132 @@
+h1 {
+  line-height: 1em;
+}
+
+h1,
+h3,
+h4,
+h5,
+div {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+h3 {
+  font-size: 19px;
+  color: white;
+  text-align: left;
+}
+
+
+h1,
+h2 {
+  color: white;
+  text-align: left;
+
+  &.semi-bold {
+    font-weight: 600;
+  }
+
+  &.light {
+    font-weight: 300;
+  }
+
+  font-size: 22px;
+  line-height: 28px;
+
+  @media (min-width: 480px) {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 35px;
+    line-height: 50px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 38px;
+    line-height: 55px;
+  }
+}
+
+
+h5 {
+  line-height: 30px;
+}
+
+h5.light {
+  font-weight: 300;
+  font-size: 27px;
+  min-height: 37px;
+
+  @media (max-width: 479px) {
+    font-size: 24px;
+  }
+}
+
+.asterisk {
+  margin-bottom: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.67);
+}
+
+button {
+  margin: 30px 0;
+}
+
+.slide {
+  > div {
+
+    :not(img) {
+      z-index: 1;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: top;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    color: white;
+    height: 100%;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    background-position: 57%;
+    padding: 5% 75px 3%;
+
+    @media (max-width: 768px) {
+      padding: 5% 30px 3% 30px;
+      background-position: 0;
+    }
+  }
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+swiper-container {
+  display: grid;
+}
+
+.slider-title {
+  max-width: 800px;
+}
+
+.slider-content {
+  img {
+    z-index: -2;
+  }
+
+  .slider-title {
+    z-index: 2;
+  }
+}
+
+swiper-slide {
+  
+}

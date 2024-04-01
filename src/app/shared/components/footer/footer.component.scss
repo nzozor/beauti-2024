@@ -1,0 +1,79 @@
+@import '../../../../scss/palette';
+
+:host {
+  display: flex;
+  min-height: 370px;
+  flex-direction: column;
+  padding: 30px 70px;
+  font-family: 'Nunito Sans', sans-serif;
+  color: $grey-black;
+
+  a, a.address-google-map {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .main {
+    display: flex;
+    justify-content: space-between;
+    min-height: 250px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 22px;
+
+    &::after {
+      content: '';
+      width: 106px;
+    }
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      app-beauti-logo {
+        ::ng-deep svg {
+          margin: 5px auto;
+          margin-bottom: 35px;
+        }
+      }
+      .social {
+        margin: 5px 0 30px;
+      }
+    }
+
+    > div {
+      div {
+        margin-bottom: 25px;
+      }
+    }
+
+    app-beauti-logo {
+      ::ng-deep svg {
+        width: initial;
+        height: 25px;
+      }
+    }
+  }
+
+  .final {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.33;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+}
+
+app-contact, app-consultation, app-about-us, app-home-page {
+  & + :host {
+    border-top: 0.5px solid rgba($grey-black, .7);
+  }
+}
+

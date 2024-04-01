@@ -1,0 +1,10 @@
+svg {
+    position: relative;
+    top: -18px;
+}
+
+.right {
+    svg {
+        transform: rotate(180deg);
+    }
+}

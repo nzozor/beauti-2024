@@ -1,0 +1,79 @@
+@import '../../../scss/palette';
+
+:host {
+  padding-top: 90px;
+}
+
+h3 {
+  margin-top: 60px;
+}
+
+h4.sub-heading {
+  font-size: 28px;
+  margin: 50px 0 20px;
+  @media screen and (min-width: 768px) {
+    width: 450px;
+    margin: 20px auto;
+    padding-top: 30px;
+  }
+}
+
+a {
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.popular-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 680px;
+  margin: auto;
+
+  @media (max-width: 768px) {
+    display: initial;
+  }
+
+  .feature-box {
+    @media (max-width: 768px) {
+      margin: 30px 20px;
+    }
+    transition: all .4s;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(3, 27, 78, .1);
+    }
+
+    text-align: center;
+    border: 1px solid $blue-type1;
+    min-width: 272px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+
+    > div {
+      line-height: 30px;
+      padding: 30px;
+    }
+
+    h4 {
+      font-size: 27px;
+      background-color: $blue-type1;
+      padding: 20px 50px;
+      color: white;
+      font-weight: 300;
+    }
+
+    a {
+      text-decoration: none;
+      border-bottom: 1px solid $beauti-grey;
+    }
+  }
+}
+
+.container-featured {
+  margin: 90px 0 30px;
+}

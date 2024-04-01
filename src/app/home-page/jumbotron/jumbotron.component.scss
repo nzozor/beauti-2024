@@ -1,0 +1,78 @@
+@import '../../../scss/palette';
+
+:host {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: roboto;
+  font-size: 38px;
+  font-weight: 100;
+  padding: 80px 60px 0 60px;
+
+  @media (max-width: 767px) {
+    font-size: 27px;
+  }
+}
+
+div.slogan {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: $grey-black;
+
+  h1, h2 {
+    display: inline;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  h1 {
+    font-weight: 300;
+
+  }
+
+  br {
+    display: none;
+  }
+
+  @media (min-width: 600px) {
+    br {
+      display: block;
+    }
+  }
+}
+
+div {
+  position: relative;
+}
+
+.main-button.mat-primary {
+  &.treatments {
+    margin: 50px 0 75px;
+    padding: 5px 27px;
+
+    @media (max-width: 767px) {
+      margin: 30px 0 40px;
+    }
+  }
+
+  &.book {
+    display: none;
+    margin-top: 30px;
+
+    @media (max-width: 767px) {
+      display: initial;
+    }
+  }
+}
+
+app-quote {
+  position: absolute;
+  top: -27px;
+  left: -44px;
+
+  ::ng-deep svg {
+    height: 100px;
+    width: 70px;
+  }
+}

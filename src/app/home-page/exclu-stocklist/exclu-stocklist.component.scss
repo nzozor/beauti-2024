@@ -1,0 +1,104 @@
+@import '../../../scss/palette';
+
+:host {
+  > div {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding: 0 30px 30px;
+
+    @media (min-width: 1024px) {
+      flex-wrap: inherit;
+    }
+
+    > div {
+      margin: 10px;
+      max-width: 614px;
+      border: 1px solid $blue-type1;
+      position: relative;
+      cursor: pointer;
+      transition: all .4s;
+
+      @media (min-width: 1024px) {
+        width: 50%;
+      }
+
+      &:hover {
+        box-shadow: 0 10px 20px rgba(3, 27, 78, .1);
+      }
+
+      a {
+        text-decoration: none;
+
+        > div {
+          &::before {
+            content: '';
+            display: block;
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba($blue-type1, 0.25);
+            transition: all .4s;
+          }
+
+          &:hover {
+            &::before {
+              opacity: 1;
+            }
+
+            .mat-icon {
+              display: block;
+            }
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .mat-icon {
+        margin: 10px;
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: $grey-black;
+      }
+
+    }
+  }
+}
+
+h3 {
+  margin-bottom: 30px;
+  margin-top: 60px;
+}
+
+h4 {
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 29px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: $grey-black;
+  letter-spacing: .5px;
+  margin: 0 30px 30px 30px;
+}
+
+#carousel {
+  max-width: 1000px;
+  margin: auto;
+  padding-bottom: 60px;
+
+  .slide {
+    margin: 0 10px;
+    //width: 160px;
+
+  }
+}

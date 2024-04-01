@@ -1,0 +1,63 @@
+@import '../../../scss/palette';
+
+:host {
+  position: relative;
+  height: 100%;
+  width: 500px;
+
+  .carousel .slick-dots {
+    padding: 0;
+    margin: 0;
+    display: none;
+  }
+
+
+  & > div {
+    padding: 50px 0 10px;
+    background-color: $grey-opacity-20;
+  }
+}
+
+h3 {
+
+  margin-bottom: 50px;
+}
+
+
+.stars {
+  mat-icon {
+    color: $blue-type1;
+    font-size: 25px;
+    margin: 0 5px;
+  }
+}
+
+swiper-container {
+  padding: 0 20px;
+}
+
+swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  font-size: 14px;
+
+  > div {
+    border: 1px solid $blue-type1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-self: normal;
+    justify-content: center;
+
+    .name {
+      color: $beauti-grey;
+      //margin-bottom: 15px;
+      margin: 15px;
+    }
+  }
+}
+
+

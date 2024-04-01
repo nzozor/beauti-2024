@@ -1,0 +1,32 @@
+@import './palette';
+
+.main-button, .mat-stroked-button {
+
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  min-width: initial !important;
+
+  &.mat-primary {
+    border-radius: 2px;
+    padding: 5px 50px;
+    background-color: #C7CBD6 !important;
+    letter-spacing: normal;
+    height: 46px;
+  }
+
+  &.mat-stroked-button {
+    border-radius: 2px;
+    background-color: transparent !important;
+    display: flex;
+    justify-content: center;
+    width: 146px;
+    height: 41px;
+    color: $grey-black;
+    border: 1px solid $grey-black;
+  }
+}

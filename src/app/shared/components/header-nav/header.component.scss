@@ -1,0 +1,111 @@
+app-burger-menu {
+  display: none;
+  width: 175px;
+
+  @media (max-width: 1200px) {
+    display: initial;
+  }
+
+  @media (max-width: 767px) {
+    width: initial;
+  }
+}
+
+:host {
+  & > div {
+    padding: 18px 70px;
+    background-color: white;
+
+    @media (max-width: 767px) {
+      padding: 18px 30px;
+    }
+
+    @media (max-width: 574px) {
+      padding: 10px 0;
+      app-beauti-logo {
+        ::ng-deep svg {
+          width: initial;
+          height: 25px;
+        }
+      }
+    }
+
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+      padding: 0 15px;
+
+      @media (min-width: 576px) {
+        padding: 0;
+      }
+
+      @media (max-width: 767px) {
+        &::after {
+          content: '';
+          width: 50px;
+        }
+      }
+    }
+  }
+
+  .menu-list {
+    display: flex;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13px;
+    color: #3E3D3C; // TO DO: to move
+    padding: 0;
+
+    @media (max-width: 1199px) {
+      display: none;
+    }
+
+    li {
+      margin: 0 30px;
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: inherit;
+      }
+
+    }
+  }
+}
+
+button {
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+
+  &.main-button {
+    width: 177px;
+
+    @media (min-width: 1024px) {
+      opacity: 1;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu {
+  width: 50px;
+  height: 50px;
+  display: none;
+
+  @media (min-width: 576px) {
+    display: none;
+  }
+}
+
+app-menu-link.active {
+  position: absolute;
+  height: 100vh;
+}

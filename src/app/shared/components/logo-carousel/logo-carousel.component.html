@@ -1,0 +1,9 @@
+<swiper-container #swiperRef [ngStyle]="styles" class="swiper-container" init="false">
+  <swiper-slide *ngFor="let image of images" class="slide" lazy="true">
+    <div>
+      <img Loading="lazy" [alt]="image.alt?? 'logo Image'" [ngSrc]="image.url" [title]="image.title?? 'Logo Title'"
+           height="86" width="151">
+    </div>
+  </swiper-slide>
+</swiper-container>
+

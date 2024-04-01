@@ -1,0 +1,101 @@
+.mat-typography {
+
+  .about-us-page, .consultation-page {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      text-align: left;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    h5,
+    h4 {
+      font-size: 29px;
+      margin: 20px 0;
+    }
+
+    h1 {
+      margin: 40px 0 20px 0;
+      font-weight: 100;
+      font-size: 33px;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: inherit;
+      font-size: 36px;
+      font-weight: 100;
+    }
+
+    h4 {
+      font-weight: 300;
+    }
+
+    h5 {
+      font-weight: 100;
+    }
+
+    .beauti {
+      margin-bottom: 40px;
+
+      h5,
+      h4 {
+        display: inline;
+      }
+
+      div {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        font-size: 29px;
+      }
+    }
+
+    p,
+    h3 {
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 17px;
+      font-weight: 100;
+      line-height: 32px;
+      margin-bottom: 40px;
+
+      a {
+        color: inherit;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .about-us-page {
+    img {
+      max-width: 500px;
+      display: flex;
+      margin: auto;
+    }
+  }
+
+  .consultation-page {
+    h3 {
+      font-size: 20px;
+      font-weight: 300;
+
+      &.booking {
+        font-size: 18px;
+
+        text-align: center;
+        font-style: italic;
+      }
+
+      & ~ p {
+        display: inline;
+      }
+    }
+
+
+  }
+}

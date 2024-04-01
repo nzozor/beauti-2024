@@ -1,0 +1,15 @@
+<div id="review-container">
+  <h3>5 Star Reviews</h3>
+  <swiper-container #swiperRef [ngStyle]="styles" class="swiper-container" init="false" pagination="true"
+                    pagination-clickable="true" pagination-dynamic-bullets="true">
+    <swiper-slide *ngFor="let review of reviews" class="slide">
+      <div>
+        <div class="quote">"{{ review.quote }}"</div>
+        <div class="name">{{ review.reviewerName }}</div>
+        <div class="stars">
+          <mat-icon *ngFor="let star of stars">star</mat-icon>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</div>
