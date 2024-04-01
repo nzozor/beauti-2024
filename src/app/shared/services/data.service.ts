@@ -13,9 +13,9 @@ import {HomePageSlider, HomePageSliderRaw} from '../models/homepageSlider.model'
 })
 export class DataService {
   beautiCmsUrl = environment.cmsUrl;
-  // currentParentTreatment = 'Skin Treatmetns';
-  // activeTreatmentList: string[];
-  // activeTreatment: string;
+  currentParentTreatment = 'Skin Treatmetns';
+  activeTreatmentList: string[] = [''];
+  activeTreatment: string = '';
 
   constructor(private http: HttpClient) {
   }

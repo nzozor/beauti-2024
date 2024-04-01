@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
 import {NavigationEnd, RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterOutlet} from '@angular/router';
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import {FooterComponent} from "./shared/components/footer/footer.component";
@@ -13,9 +13,8 @@ import {SeoService} from "./shared/services/seo.service";
   imports: [RouterOutlet, MatProgressSpinner, HeaderNavComponent, FooterComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
 
   title = 'beauti-frontend';
   stickyHeader = false;

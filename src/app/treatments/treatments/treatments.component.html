@@ -1,0 +1,914 @@
+<div id="treatment-container">
+  <h1>Treatments</h1>
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel [disabled]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title><h2>Consultation</h2></mat-panel-title>
+        <mat-panel-description >
+          <a
+            href="/consultation"
+            class="book-now"
+          >
+            <button
+              mat-flat-button
+              color="primary"
+              class="main-button consultation"
+            >
+              Book now
+            </button>
+          </a>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="isActive('Skin-Treatments')">
+      <mat-expansion-panel-header>
+        <mat-panel-title><h2>Aesthetic Treatments</h2></mat-panel-title>
+        <mat-panel-description>
+          <a
+            href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+            target="_blank"
+            class="book-now"
+          >
+            <button
+              (click)="openBooking($event)"
+              mat-flat-button
+              color="primary"
+              class="main-button"
+            >
+              Book now
+            </button>
+          </a>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="sub">
+        <div
+          class="skin-treatment"
+          *ngFor="let treatment of aestheticTreatments"
+        >
+          <div class="title" id="{{ getSlug(treatment.title) }}">
+            <div>
+              <span [innerHtml]="treatment.title"></span>
+              <span [innerHTML]="treatment.treatment"></span>
+            </div>
+            <a
+              href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+              target="_blank"
+              class="book-now"
+              *ngIf="!treatment.hasShowcase"
+            >
+              <button mat-stroked-button color="primary" class="main-button">
+                Book now
+              </button>
+            </a>
+
+            <a
+              [routerLink]="treatment.url || treatment.title"
+              *ngIf="treatment.hasShowcase"
+            >
+              <button
+                (click)="
+                  goToTreatmentShowcase(
+                    ['Skin Treatments', 'Aesthetic Treatments'],
+                    treatment.url || treatment.title
+                  )
+                "
+                mat-stroked-button
+                color="primary"
+                class="main-button main-button-read-more"
+              >
+                Read More
+              </button>
+            </a>
+          </div>
+          <div class="description">{{ treatment.description }}</div>
+          <div class="direction-column" *ngIf="treatment.orientation !== 'row'">
+            <div class="options-key">
+              <div *ngFor="let option of treatment.options">
+                {{ option.key }}
+              </div>
+            </div>
+
+            <div class="options-value">
+              <div *ngFor="let option of treatment.options">
+                {{ option.value }}
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="direction-row"
+            *ngIf="
+              treatment.orientation === 'row' &&
+              treatment.fullOptions !== 'true'
+            "
+          >
+            <div class="row" *ngFor="let option of treatment.options">
+              <div>{{ option.treatment }}</div>
+              <div>{{ option.options[1].value }}</div>
+            </div>
+          </div>
+          <div
+            class="direction-row"
+            *ngIf="
+              treatment.orientation === 'row' &&
+              treatment.fullOptions === 'true'
+            "
+          >
+            <div class="row" *ngFor="let option of treatment.options">
+              <div>{{ option.treatment }}</div>
+              <div *ngFor="let op of option.options">
+                <div>
+                  {{ op.key }}
+                  <span>{{ op.value }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="isActive('Skin-Treatments')">
+      <mat-expansion-panel-header>
+        <mat-panel-title><h2>Skin Treatments</h2></mat-panel-title>
+        <mat-panel-description>
+          <a
+            href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+            target="_blank"
+            class="book-now"
+          >
+            <button
+              (click)="openBooking($event)"
+              mat-flat-button
+              color="primary"
+              class="main-button"
+            >
+              Book now
+            </button>
+          </a>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="sub">
+        <!-- <mat-accordion> -->
+        <mat-expansion-panel
+          [expanded]="isActive('Advanced-Skin-Treatments')"
+          id="Advanced-Skin-Treatments"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Advanced Skin Treatments</mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="skin-treatment" *ngFor="let treatment of skinTreatments">
+            <div class="title" id="{{ getSlug(treatment.title) }}">
+              <div>
+                <span [innerHtml]="treatment.title"></span>
+                <span [innerHTML]="treatment.treatment"></span>
+              </div>
+              <a
+                href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+                target="_blank"
+                class="book-now"
+                *ngIf="!treatment.hasShowcase"
+              >
+                <button
+                  (click)="openBooking($event, treatment)"
+                  mat-stroked-button
+                  color="primary"
+                  class="main-button-read-more"
+                >
+                  Book now
+                </button>
+              </a>
+              <a
+                [routerLink]="treatment.url || treatment.title"
+                *ngIf="treatment.hasShowcase"
+              >
+                <button
+                  (click)="
+                    goToTreatmentShowcase(
+                      ['Skin Treatments', 'Advanced Skin Treatments'],
+                      treatment.title
+                    )
+                  "
+                  mat-stroked-button
+                  color="primary"
+                  class="main-button-read-more"
+                >
+                  Read More
+                </button>
+              </a>
+            </div>
+            <div class="description">{{ treatment.description }}</div>
+            <div
+              class="direction-column"
+              *ngIf="treatment.orientation !== 'row'"
+            >
+              <div class="options-key">
+                <div *ngFor="let option of treatment.options">
+                  {{ option.key }}
+                </div>
+              </div>
+
+              <div class="options-value">
+                <div *ngFor="let option of treatment.options">
+                  {{ option.value }}
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="direction-row"
+              *ngIf="
+                treatment.orientation === 'row' &&
+                treatment.fullOptions !== 'true'
+              "
+            >
+              <div class="row" *ngFor="let option of treatment.options">
+                <div>{{ option.treatment }}</div>
+                <div>{{ option.options[1].value }}</div>
+              </div>
+            </div>
+            <div
+              class="direction-row"
+              *ngIf="
+                treatment.orientation === 'row' &&
+                treatment.fullOptions === 'true'
+              "
+            >
+              <div class="row" *ngFor="let option of treatment.options">
+                <div>{{ option.treatment }}</div>
+                <div *ngFor="let op of option.options">
+                  <div>
+                    {{ op.key }}
+                    <span>{{ op.value }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          [expanded]="isActive('Classic Skin Treatments')"
+          id="Classic-Skin-Treatments"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Classic Skin Treatments</mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="sub">
+            <div class="skin-treatment" *ngFor="let treatment of beautyFacial">
+              <div class="title" id="{{ getSlug(treatment.title) }}">
+                <div>
+                  <span [innerHtml]="treatment.title"></span>
+
+                  <span [innerHTML]="treatment.treatment"></span>
+                </div>
+                <a
+                  href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+                  target="_blank"
+                  class="book-now"
+                  *ngIf="!treatment.hasShowcase"
+                >
+                  <button
+                    (click)="openBooking($event)"
+                    mat-stroked-button
+                    color="primary"
+                    class="main-button"
+                  >
+                    Book now
+                  </button>
+                </a>
+                <a
+                  [routerLink]="treatment.url || treatment.title"
+                  *ngIf="treatment.hasShowcase"
+                >
+                  <button
+                    (click)="
+                      goToTreatmentShowcase(
+                        ['Skin Treatments', 'Classic Skin Treatments'],
+                        treatment.title
+                      )
+                    "
+                    mat-stroked-button
+                    color="primary"
+                    class="main-button-read-more"
+                  >
+                    Read More
+                  </button>
+                </a>
+              </div>
+              <div class="description">{{ treatment.description }}</div>
+              <div
+                class="direction-column"
+                *ngIf="treatment.orientation !== 'row'"
+              >
+                <div class="options-key">
+                  <div *ngFor="let option of treatment.options">
+                    {{ option.key }}
+                  </div>
+                </div>
+
+                <div class="options-value">
+                  <div *ngFor="let option of treatment.options">
+                    {{ option.value }}
+                  </div>
+                </div>
+              </div>
+              <div
+                class="direction-row"
+                *ngIf="
+                  treatment.orientation === 'row' &&
+                  treatment.fullOptions !== 'true'
+                "
+              >
+                <div class="row" *ngFor="let option of treatment.options">
+                  <div>{{ option.treatment }}</div>
+                  <div>{{ option.options[1].value }}</div>
+                </div>
+              </div>
+              <div
+                class="direction-row"
+                *ngIf="
+                  treatment.orientation === 'row' &&
+                  treatment.fullOptions === 'true'
+                "
+              >
+                <div class="row" *ngFor="let option of treatment.options">
+                  <div>{{ option.treatment }}</div>
+                  <div *ngFor="let op of option.options">
+                    <div>
+                      {{ op.key }}
+                      <span>{{ op.value }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          [expanded]="isActive('Skin Imperfection Removal')"
+          id="Skin-Imperfection-Removal"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Skin Imperfection Removal</mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <div>
+            <div>
+              <div
+                class="skin-treatment"
+                *ngFor="let element of skinImperfectionRemoval"
+              >
+                <div class="title" id="{{ getSlug(element.title) }}">
+                  <div>
+                    <span>{{ element.title }}</span>
+                    <span [innerHTML]="element.treatment"></span>
+                  </div>
+                  <a
+                    href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+                    target="_blank"
+                    class="book-now"
+                    *ngIf="!element.hasShowcase"
+                  >
+                    <button
+                      (click)="openBooking($event)"
+                      mat-stroked-button
+                      color="primary"
+                      class="main-button"
+                    >
+                      Book now
+                    </button>
+                  </a>
+                  <a
+                    [routerLink]="element.url || element.title"
+                    *ngIf="element.hasShowcase"
+                  >
+                    <button
+                      (click)="
+                        goToTreatmentShowcase(
+                          ['Skin Treatments', 'Skin Imperfection Removal'],
+                          'Skin-Imperfection-Removal'
+                        )
+                      "
+                      mat-stroked-button
+                      color="primary"
+                      class="main-button-read-more"
+                    >
+                      Read More
+                    </button>
+                  </a>
+                </div>
+                <div class="description">
+                  {{ element.description }}
+                </div>
+                <div class="direction-column content">
+                  <div class="options-key">
+                    <div *ngFor="let option of element.options">
+                      {{ option.key }}
+                    </div>
+                  </div>
+
+                  <div class="options-value">
+                    <div *ngFor="let option of element.options">
+                      {{ option.value }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title><h2>Waxing</h2></mat-panel-title>
+        <mat-panel-description>
+          <a
+            href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+            target="_blank"
+            class="book-now"
+          >
+            <button
+              (click)="openBooking($event)"
+              mat-flat-button
+              color="primary"
+              class="main-button"
+            >
+              Book now
+            </button>
+          </a>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="waxing">
+        <div class="description">
+          {{ waxing[0].description }}
+        </div>
+        <div class="left-col">
+          <div class="direction-row content" *ngFor="let option of leftCol">
+            <div class="header row">
+              <div>{{ option.treatment }}</div>
+              <div>Single</div>
+            </div>
+            <div class="body row" *ngFor="let rowTreatment of option.options">
+              <div>{{ rowTreatment.key }}</div>
+              <div>{{ rowTreatment.value }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="right-col">
+          <div class="direction-row right-col" *ngFor="let option of rightCol">
+            <div class="header row">
+              <div>{{ option.treatment }}</div>
+              <div>Single</div>
+            </div>
+            <div class="body row" *ngFor="let rowTreatment of option.options">
+              <div>{{ rowTreatment.key }}</div>
+              <div>{{ rowTreatment.value }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel
+      [expanded]="isActive('Permanent Hair Removal')"
+      id="Permanent-Hair-Removal"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title><h2>Permanent Hair Removal</h2></mat-panel-title>
+        <mat-panel-description>
+          <a
+            href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+            target="_blank"
+            class="book-now"
+          >
+            <button
+              (click)="openBooking($event)"
+              mat-flat-button
+              color="primary"
+              class="main-button"
+            >
+              Book now
+            </button>
+          </a>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div id="hair-removal">
+        <!-- <mat-accordion> -->
+        <mat-expansion-panel *ngFor="let mainTreat of hairRemoveLaser">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ mainTreat.treatmentName }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <div class="description">
+              {{ mainTreat.description }}
+            </div>
+            <div class="title" id="">
+              <div>
+                <span></span>
+                <span></span>
+              </div>
+              <a
+                [routerLink]="mainTreat.url || mainTreat.title"
+                *ngIf="mainTreat.hasShowcase"
+              >
+                <button
+                  (click)="
+                    goToTreatmentShowcase(
+                      ['Permanent Hair Removal', 'Laser Hair Removal'],
+                      mainTreat.treatmentName
+                    )
+                  "
+                  mat-stroked-button
+                  color="primary"
+                  class="main-button-read-more"
+                >
+                  Read More
+                </button>
+              </a>
+            </div>
+            <!-- <button
+              (click)="
+                goToTreatmentShowcase(
+                  ['Permanent Hair Removal', 'Permanent Hair Removal'],
+                  mainTreat.treatmentName
+                )
+              "
+              mat-stroked-button
+              color="primary"
+              class="main-button"
+              *ngIf="mainTreat.hasShowcase"
+            >
+              Read More
+            </button>
+            <div>&nbsp;</div> -->
+            <div
+              *ngFor="let rowTreatment of mainTreat.options"
+              class="treatment-table"
+            >
+              <!-- small area main table -->
+
+              <div class="header row">
+                <div>{{ rowTreatment.treatmentName }}</div>
+                <!-- small area Title name -->
+                <div *ngFor="let rowOptions of rowTreatment.options[0].options">
+                  {{ rowOptions.key }}
+                </div>
+              </div>
+              <div class="body">
+                <div *ngFor="let rowOptions of rowTreatment.options">
+                  <div>
+                    {{ rowOptions.treatmentName }}
+                  </div>
+                  <div *ngFor="let colOptions of rowOptions.options">
+                    {{ colOptions.value }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          *ngFor="let mainTreat of hairRemoveElectro"
+          [expanded]="isActive('Electrolysis')"
+          id="Electrolysis"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ mainTreat.treatmentName }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <div class="title">
+              <div>
+                <span>{{ mainTreat.title }}</span>
+                <span [innerHTML]="mainTreat.treatment"></span>
+              </div>
+              <a
+                href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+                target="_blank"
+                class="book-now"
+                *ngIf="!mainTreat.hasShowcase"
+              >
+                <button
+                  (click)="openBooking($event)"
+                  mat-stroked-button
+                  color="primary"
+                  class="main-button"
+                >
+                  Book now
+                </button>
+              </a>
+              <a
+                [routerLink]="mainTreat.url || mainTreat.title"
+                *ngIf="mainTreat.hasShowcase"
+              >
+                <button
+                  (click)="
+                    goToTreatmentShowcase(
+                      ['Permanent Hair Removal', 'Permanent Hair Removal'],
+                      mainTreat.treatmentName
+                    )
+                  "
+                  mat-stroked-button
+                  color="primary"
+                  class="main-button main-button-read-more"
+                >
+                  Read More
+                </button>
+              </a>
+            </div>
+            <div class="description">
+              {{ mainTreat.description }}
+            </div>
+            <div
+              class="direction-column"
+              *ngIf="mainTreat.orientation !== 'row'"
+            >
+              <div class="options-key">
+                <div *ngFor="let option of mainTreat.options; row">
+                  {{ option.key }}
+                </div>
+              </div>
+
+              <div class="options-value">
+                <div *ngFor="let option of mainTreat.options">
+                  {{ option.value }}
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="direction-row"
+              *ngIf="
+                mainTreat.orientation === 'row' &&
+                mainTreat.fullOptions !== 'true'
+              "
+            >
+              <div class="row" *ngFor="let option of mainTreat.options">
+                <div>{{ option.treatment }}</div>
+                <div>{{ option.options[1].value }}</div>
+              </div>
+            </div>
+            <div
+              class="direction-row"
+              *ngIf="
+                mainTreat.orientation === 'row' &&
+                mainTreat.fullOptions === 'true'
+              "
+            >
+              <div class="row" *ngFor="let option of mainTreat.options">
+                <div>{{ option.treatment }}</div>
+                <div *ngFor="let op of option.options">
+                  <div>
+                    {{ op.key }}
+                    <span>{{ op.value }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <!-- </mat-accordion> -->
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="isActive('Body')" id="Body">
+      <mat-expansion-panel-header>
+        <mat-panel-title><h2>Body</h2></mat-panel-title>
+        <mat-panel-description>
+          <a
+            href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+            target="_blank"
+            class="book-now"
+          >
+            <button
+              (click)="openBooking($event)"
+              mat-flat-button
+              color="primary"
+              class="main-button"
+            >
+              Book now
+            </button>
+          </a>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="sub">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Relaxing Massages</mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <div>
+            <div
+              class="skin-treatment"
+              *ngFor="let treatment of bodyRelaxingMassage"
+            >
+              <div class="title">
+                <div>
+                  <span>{{ treatment.title }}</span>
+                  <span [innerHTML]="treatment.treatment"></span>
+                </div>
+                <a
+                  href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+                  target="_blank"
+                  class="book-now"
+                >
+                  <button
+                    (click)="openBooking($event)"
+                    mat-stroked-button
+                    color="primary"
+                    class="main-button"
+                  >
+                    Book now
+                  </button>
+                </a>
+              </div>
+              <div class="description">{{ treatment.description }}</div>
+              <div
+                class="direction-column"
+                *ngIf="treatment.orientation !== 'row'"
+              >
+                <div class="options-key">
+                  <div *ngFor="let option of treatment.options">
+                    {{ option.key }}
+                  </div>
+                </div>
+
+                <div class="options-value">
+                  <div *ngFor="let option of treatment.options">
+                    {{ option.value }}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="direction-row"
+                *ngIf="
+                  treatment.orientation === 'row' &&
+                  treatment.fullOptions !== 'true'
+                "
+              >
+                <div class="row" *ngFor="let option of treatment.options">
+                  <div>{{ option.treatment }}</div>
+                  <div>{{ option.options[1].value }}</div>
+                </div>
+              </div>
+
+              <div
+                class="direction-row"
+                *ngIf="
+                  treatment.orientation === 'row' &&
+                  treatment.fullOptions === 'true'
+                "
+              >
+                <div class="row" *ngFor="let option of treatment.options">
+                  <div>{{ option.treatment }}</div>
+                  <div *ngFor="let op of option.options">
+                    <div>
+                      {{ op.key }}
+                      <span>{{ op.value }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          [expanded]="isActive('Body Contouring')"
+          id="Body-Contouring"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Body Contouring</mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+          </mat-expansion-panel-header>
+          <div>
+            <div
+              class="skin-treatment"
+              *ngFor="let treatment of bodyContouring"
+            >
+              <div class="title">
+                <div>
+                  <span>{{ treatment.title }}</span>
+                  <span [innerHTML]="treatment.treatment"></span>
+                </div>
+                <a
+                  href="https://widget.treatwell.co.uk/place/beauti-skin-clinic/"
+                  target="_blank"
+                  class="book-now"
+                  *ngIf="!treatment.hasShowcase"
+                >
+                  <button
+                    (click)="openBooking($event)"
+                    mat-stroked-button
+                    color="primary"
+                    class="main-button"
+                  >
+                    Book now
+                  </button>
+                </a>
+                <a
+                  [routerLink]="treatment.url || treatment.title"
+                  *ngIf="treatment.hasShowcase"
+                >
+                  <button
+                    (click)="
+                      goToTreatmentShowcase(
+                        ['Body', 'Body Contouring'],
+                        treatment.title
+                      )
+                    "
+                    mat-stroked-button
+                    color="primary"
+                    class="main-button main-button-read-more"
+                  >
+                    Read More
+                  </button>
+                </a>
+              </div>
+              <div class="description">{{ treatment.description }}</div>
+              <div
+                class="direction-column"
+                *ngIf="treatment.orientation !== 'row'"
+              >
+                <div class="options-key">
+                  <div *ngFor="let option of treatment.options">
+                    {{ option.key }}
+                  </div>
+                </div>
+
+                <div class="options-value">
+                  <div *ngFor="let option of treatment.options">
+                    {{ option.value }}
+                  </div>
+                </div>
+              </div>
+              <div
+                class="direction-column"
+                *ngIf="treatment.orientation !== 'row'"
+              >
+                <div class="options-key">
+                  <div *ngFor="let option of treatment.options_second">
+                    {{ option.key }}
+                  </div>
+                </div>
+
+                <div class="options-value">
+                  <div *ngFor="let option of treatment.options_second">
+                    {{ option.value }}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="direction-row"
+                *ngIf="
+                  treatment.orientation === 'row' &&
+                  treatment.fullOptions !== 'true'
+                "
+              >
+                <div class="row" *ngFor="let option of treatment.options">
+                  <div>{{ option.treatment }}</div>
+                  <div>{{ option.options[1].value }}</div>
+                </div>
+              </div>
+              <div
+                class="direction-row"
+                *ngIf="
+                  treatment.orientation === 'row' &&
+                  treatment.fullOptions === 'true'
+                "
+              >
+                <div class="row" *ngFor="let option of treatment.options">
+                  <div>{{ option.treatment }}</div>
+                  <div *ngFor="let op of option.options">
+                    <div>
+                      {{ op.key }}
+                      <span>{{ op.value }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <!-- </mat-accordion> -->
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="book-treatment-fixed">
+    <button
+      (click)="openBooking($event)"
+      mat-flat-button
+      color="primary"
+      class="main-button mobile"
+    >
+      Book now
+    </button>
+  </div>
+</div>

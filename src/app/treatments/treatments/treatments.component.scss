@@ -1,0 +1,460 @@
+@import '../../../scss/palette';
+
+:host {
+  > div {
+    background-color: rgba($blue-type1, 0.15);
+    padding: 70px 30px;
+
+    @media only screen and (max-width: 600px) {
+      padding: 50px 0;
+    }
+
+    ::ng-deep > .mat-accordion,
+    ::ng-deep mat-accordion {
+      .mat-expansion-panel {
+        &:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+          background: rgba(0, 0, 0, .01);
+        }
+
+        ::ng-deep .mat-expansion-panel-body {
+          padding: 0;
+
+          > div {
+            .description:first-child {
+              padding-top: 0;
+            }
+          }
+
+          // .mat-expansion-panel {
+          //     height: 35px!important;
+          // }
+        }
+
+        max-width: 853px;
+        margin: 0 auto;
+        border-bottom: .5px solid #3e3d3c52;
+        border-radius: initial;
+
+        &,
+        .mat-expansion-panel {
+          background-color: transparent;
+
+          &:hover,
+          &:focus {
+            background-color: transparent;
+          }
+
+          .mat-expansion-panel {
+            border-bottom: none;
+
+            > .mat-expansion-panel-header {
+              height: 35px !important;
+            }
+          }
+
+          > .mat-expansion-panel-header {
+            height: 48px;
+            padding-left: 15px;
+            padding-bottom: 20px;
+          }
+
+          ::ng-deep .mat-expansion-panel-body {
+            padding: 0;
+
+            .title {
+              font-family: 'Nunito Sans', sans-serif;
+              font-size: 14px;
+              padding: 15px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+
+              a {
+                text-decoration: none;
+
+              }
+
+              @media (max-width: 600px) {
+                button {
+                  display: none;
+                }
+              }
+
+              > div {
+                margin-right: 15px;
+                @media (min-width: 768px) {
+                  margin-right: 55px;
+                }
+
+                > span {
+                  display: block;
+
+                  &:first-of-type {
+                    font-size: 17px;
+                  }
+                }
+
+
+              }
+
+              background-color: rgba($blue-type1, 0.6);
+
+              .new {
+                color: #8793b4;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: bold;
+              }
+            }
+
+            .direction-column,
+            direction-row {
+              font-family: 'Nunito Sans', sans-serif;
+            }
+
+            .direction-column {
+              display: flex;
+              flex-direction: column;
+
+              > div {
+                display: flex;
+                flex-direction: row;
+                padding: 10px 15px;
+
+                &:first-of-type {
+                  background-color: rgba($blue-type1, 0.18);
+                }
+
+                &:last-of-type {
+                  margin-bottom: 30px;
+
+                  @media (max-width: 600px) {
+                    margin-bottom: 15px;
+                    border-bottom: 1px solid $blue-type1;
+                  }
+                }
+
+                > div {
+                  min-width: 130px;
+
+                  @media (max-width: 600px) {
+                    min-width: 25%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mat-expansion-panel {
+        background: transparent;
+
+        .skin-treatment {
+          margin-bottom: 30px;
+          font-family: 'Nunito Sans', sans-serif;
+        }
+
+        .mat-expansion-panel-header {
+          justify-content: flex-start;
+          padding: 10px 0;
+          font-size: 22px;
+          font-weight: 100;
+          line-height: 30px;
+          color: $grey-black;
+          position: relative;
+
+          @media only screen and (max-width: 600px) {
+            padding: 10px 15px;
+          }
+
+          &.mat-expanded {
+            font-weight: 400;
+
+            .mat-expansion-indicator {
+              top: 4px;
+            }
+          }
+
+          ::ng-deep .mat-content {
+            display: flex;
+            flex: initial;
+          }
+
+          mat-panel-description {
+            position: absolute;
+            right: 0;
+            margin-right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+
+            ::ng-deep .main-button.mat-primary {
+              border: none;
+              width: 146px;
+              height: 41px;
+              padding: 0;
+
+              @media only screen and (max-width: 600px) {
+                &:not(.consultation) {
+                  display: none;
+                }
+                &.consultation {
+                  margin-right: 30px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ::ng-deep {
+        .mat-expansion-panel:not([class*=mat-elevation-z]) {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .direction-row {
+    overflow: auto;
+
+    .row {
+      display: flex;
+
+      &:nth-of-type(even) {
+        background-color: rgba($blue-type1, 0.18);
+      }
+
+      > div {
+        min-width: 140px;
+        padding: 10px 15px;
+        width: 50%;
+
+        &:last-of-type {
+          padding-right: 0
+        }
+      }
+    }
+  }
+
+  .description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    padding: 15px 18px;
+    line-height: 23px;
+    display: none;
+  }
+
+  .waxing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 768px) {
+      display: initial;
+
+      .left-col,
+      .right-col {
+        width: 100%;
+      }
+    }
+
+    .direction-row {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px;
+      padding-bottom: 54px;
+
+      .row {
+        &:nth-of-type(even) {
+          background-color: initial;
+        }
+
+        &:nth-of-type(odd) {
+          background-color: rgba($blue-type1, 0.18);
+        }
+
+        &:first-of-type {
+          background-color: rgba($blue-type1, 0.40);
+        }
+
+        > div {
+          &:first-of-type {
+            width: 52%;
+          }
+
+          &:last-of-type {
+            text-align: center;
+          }
+        }
+
+        &.header {
+          > div:first-of-type {
+            font-size: 17px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+  #hair-removal {
+    .direction-column {
+      @media (max-width: 600px) {
+        & > div > div {
+          min-width: 80px;
+        }
+      }
+    }
+
+    .treatment-table {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 70px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 13px;
+
+      // font-weight: 300;
+      .header.row {
+        display: flex;
+        background-color: rgba($blue-type1, 0.40);
+
+        > div:first-of-type {
+          font-size: 17px;
+          font-weight: inherit;
+        }
+
+        > div {
+          width: 25%;
+          padding: 10px 15px;
+
+          @media only screen and (max-width: 600px) {
+            width: 21.6%;
+
+            &:first-of-type {
+              width: 25%;
+            }
+          }
+        }
+      }
+
+      .body {
+        > div {
+          display: flex;
+
+          &:nth-of-type(even) {
+            background-color: rgba($blue-type1, 0.18);
+          }
+
+          > div {
+            width: 25%;
+
+            @media only screen and (max-width: 600px) {
+              width: 21.6%;
+
+              &:first-of-type {
+                width: 25%;
+              }
+            }
+
+            padding: 10px 15px;
+          }
+        }
+      }
+    }
+  }
+
+  ::ng-deep .mat-expansion-indicator {
+    transform: scale(1.5);
+    position: relative;
+    top: -4px;
+
+    &::after {
+      border-width: 0 1px 1px 0;
+    }
+  }
+
+  ::ng-deep .mat-expansion-indicator::after {
+    padding: 5px;
+  }
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  color: inherit;
+  font-size: inherit;
+}
+
+.mat-expansion-panel {
+  & .mat-expansion-panel-header.mat-expanded {
+    ::ng-deep {
+      > .mat-expansion-indicator {
+        top: 4px;
+      }
+    }
+  }
+}
+
+
+.main-button-read-more {
+  color: $grey-black;
+  background-color: transparent !important;
+  border-color: black;
+  padding: 8px 25px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+
+@media (max-width: 600px) {
+  .title {
+    display: block !important;
+  }
+
+  .main-button-read-more {
+    border: none !important;
+    text-align: left;
+    padding: 0;
+    display: block !important;
+    font-style: italic;
+    color: $grey-black !important;
+    font-size: 14px;
+
+  }
+}
+
+
+.read-more {
+  font-style: italic;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: initial;
+
+  @media (min-width: 600px) {
+    display: none !important;
+  }
+}
+
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.book-now {
+  flex: 1;
+  text-align: right;
+  text-decoration: none;
+  justify-content: flex-end;
+  display: flex;
+}
