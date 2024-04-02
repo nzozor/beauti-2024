@@ -8,11 +8,13 @@ img {
 
   @media (min-width: 648px) {
     max-height: 300px;
+    min-height:200px;
     object-position: 0 0;
   }
 
   @media (min-width: 768px) {
     max-height: 400px;
+    min-height: 300px;
     object-position: 0 20%;
   }
 }

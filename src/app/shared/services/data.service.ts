@@ -6,7 +6,6 @@ import {TreatmentShowcase} from '../models/treatmentShowcase';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import {HomePageSlider, HomePageSliderRaw} from '../models/homepageSlider.model';
-// import {TreatmentSectionComponent} from "../../modules/treatments/treatment-section/treatment-section.component";
 
 @Injectable({
   providedIn: 'root'
