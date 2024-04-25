@@ -6,19 +6,25 @@ h1,
 h3,
 h4,
 h5,
+p,
 div {
   font-family: 'Nunito Sans', sans-serif;
 }
 
-h3 {
+.title1 {
   font-size: 19px;
   color: white;
   text-align: left;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  @media (min-width: 768px) {
+    margin-top:0;
+  }
 }
 
 
-h1,
-h2 {
+.title2,
+.title3 {
   color: white;
   text-align: left;
 
@@ -50,11 +56,11 @@ h2 {
 }
 
 
-h5 {
+.title4 {
   line-height: 30px;
 }
 
-h5.light {
+.title4 {
   font-weight: 300;
   font-size: 27px;
   min-height: 37px;
@@ -95,13 +101,13 @@ button {
     background-repeat: no-repeat, repeat;
     background-size: cover;
     background-position: 57%;
-    padding: 5% 75px 3%;
+    padding: 3% 75px 0;
     min-height: 400px;
 
     @media (max-width: 768px) {
       min-height: 390px;
 
-      padding: 5% 30px 3% 30px;
+      padding: 5% 30px 0% 30px;
       background-position: 0;
     }
   }

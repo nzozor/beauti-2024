@@ -11,12 +11,10 @@
           fill="true"
         />
         <div class="slider-title">
-
-          <h3>{{ slide.title1 }}</h3>
-          <h1 class="semi-bold">{{ slide.title2 }}</h1>
-
-          <h2 class="light">{{ slide.title3 }}</h2>
-          <h5 *ngIf="slide?.title4" class="light">{{ slide.title4 }}</h5>
+          <div class="title1">{{ slide.title1 }}</div>
+          <div class="semi-bold title2">{{ slide.title2 }}</div>
+          <div class="light title3">{{ slide.title3 }}</div>
+          <div *ngIf="slide?.title4" class="light title4">{{ slide.title4 }}</div>
         </div>
         <button
           *ngIf="slide.findOutMoreUrl"

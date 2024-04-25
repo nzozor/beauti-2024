@@ -1,8 +1,8 @@
 <div class="wrapper">
   <div class="container">
-    <div *ngIf="homepageSummary$ | async as summary">
+    <h1 *ngIf="homepageSummary$ | async as summary">
       {{summary.content}}
-    </div>
+    </h1>
     <button
       (click)="sendGtaData('view treatment')"
       class="main-button"
