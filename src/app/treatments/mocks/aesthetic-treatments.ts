@@ -93,6 +93,14 @@ export const AESTHETIC_TREATMENTS: any = [
           {key: 'Single', value: '£350'},
         ]
       },
+      {
+        treatment: `Filler Dissolving`,
+        description: ``,
+        options: [
+          {key: 'Duration', value: '60 mins'},
+          {key: 'Single', value: '£200'},
+        ]
+      },
     ]
   },
   {
@@ -205,39 +213,33 @@ export const AESTHETIC_TREATMENTS: any = [
     ]
   },
   {
-    title: `Mesotherapy - Skin Booster`,
-    url: 'Mesotherapy',
-    treatment: `Add Dermaplaning for £30, (extra 15 mins)<br />
-     Add LED Light Therapy for £20, (extra 15 mins)`,
+    title: `Polynucleotide Injectables`,
+    url: 'polynucleotide-injectables',
+    treatment: ``,
     hasShowcase: true,
     description: ``,
     orientation: 'row',
     fullOptions: 'true',
     options: [
       {
-        treatment: '                            ',
+        treatment: '                        ',
         options: [
           {key: '   Duration', value: ''},
-          {key: '   Single', value: ''},
-          {key: '   4 courses', value: ''},
+          {key: '   1ml', value: ''},
+          {key: '   2ml', value: ''},
+          {key: '   4ml', value: ''},
+
         ]
       },
       {
-        treatment: `    Face Meso`,
+        treatment: '                        ',
         options: [
-          {key: '', value: '    60 mins'},
-          {key: '', value: '    £190'},
-          {key: '', value: '    £684'},
+          {key: '', value: '45min'},
+          {key: '', value: '£250'},
+          {key: '', value: '£300'},
+          {key: '', value: '£500'},
         ]
-      },
-      {
-        treatment: `Neck & Decolletage`,
-        options: [
-          {key: '', value: '60 mins'},
-          {key: '', value: '£240'},
-          {key: '', value: '£864'},
-        ]
-      },
+      }
     ]
   },
   {
