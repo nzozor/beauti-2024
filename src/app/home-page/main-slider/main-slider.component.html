@@ -1,4 +1,4 @@
-  <swiper-container #swiperRef  class="swiper-container" init="false" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true">
+  <swiper-container #swiperRef  class="swiper-container" init="false" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" >
     <ng-container *ngIf="homageBanners$ | async as banners">
     <swiper-slide *ngFor="let slide of banners; index as i" class="slide" lazy="true">
       <div>

@@ -5,6 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
 
+
+swiper-container {
+  --swiper-preloader-color: white;
+}
+
+
 html {
   background-color: white;
   height: 100%;
