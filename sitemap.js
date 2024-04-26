@@ -13,7 +13,7 @@ let projs = [];
 axios
 	.get("http://167.99.200.71:1339/api/treaments")
 	.then((res) => {
-		projs = res.data.data.filter(treat => treat.attributes.content);
+		projs = res.data.data.filter(treat => treat.attributes.Content);
 		readXml();
 	})
 	.catch((error) => {
@@ -33,7 +33,7 @@ function readXml() {
 		for (const project of projs) {
 			existingSitemapList.urlset.url.push({
 				loc: {
-					_text: `${url}/treatments/${project.slug}`,
+					_text: `${url}/treatments/${project.attributes.slug}`,
 				},
 				changefreq: {
 					_text: "monthly",
