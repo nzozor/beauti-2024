@@ -1,6 +1,6 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
+    ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
@@ -33,8 +33,9 @@ export class LogoCarouselComponent implements AfterViewInit {
   @Input() styles: any;
   @Input() gridRows: number = 1;
   @ViewChild('swiperRef') swiperRef!: ElementRef;
+  public displayBanners: boolean = false;
 
-  constructor() {
+  constructor(private cd: ChangeDetectorRef) {
     register();
   }
 
@@ -82,6 +83,8 @@ export class LogoCarouselComponent implements AfterViewInit {
     Object.assign(this.swiperRef!.nativeElement, params);
     if (typeof this.swiperRef.nativeElement.initialize === 'function') {
       this.swiperRef.nativeElement.initialize();
+      this.displayBanners = true;
+      this.cd.detectChanges();
     } else {
       console.warn('initialize method does not exist on the swiperRef.nativeElement object');
     }

@@ -1,7 +1,7 @@
 import {
   AfterViewChecked,
   AfterViewInit,
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
@@ -116,8 +116,9 @@ export class ReviewsComponent implements AfterViewInit{
 
     margin: 'auto',
   }
+  public displayBanners: boolean = false;
 
-  constructor() {
+  constructor(private cd: ChangeDetectorRef) {
     register();
   }
 
@@ -127,6 +128,8 @@ export class ReviewsComponent implements AfterViewInit{
     Object.assign(this.swiperRef!.nativeElement, this.params);
     if (typeof this.swiperRef.nativeElement.initialize === 'function') {
       this.swiperRef.nativeElement.initialize();
+      this.displayBanners = true;
+      this.cd.detectChanges();
     } else {
       console.warn('initialize method does not exist on the swiperRef.nativeElement object');
     }

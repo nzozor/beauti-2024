@@ -1,33 +1,34 @@
 import {CommonModule, isPlatformBrowser, NgOptimizedImage} from '@angular/common';
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA, ElementRef,
   EventEmitter,
-  Inject,
+  Inject, OnInit,
   Output,
   PLATFORM_ID, ViewChild
 } from '@angular/core';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, delay, Observable} from 'rxjs';
 import {register} from 'swiper/element/bundle';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from "@angular/router";
-import {DataService} from "../../shared/services/data.service";
-import {BookingService} from "../../shared/services/booking.service";
-import {HomePageSlider} from "../../shared/models/homepageSlider.model";
+import {DataService} from "@app/shared/services/data.service";
+import {BookingService} from "@app/shared/services/booking.service";
+import {HomePageSlider} from "@app/shared/models/homepageSlider.model";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-main-slider',
   templateUrl: './main-slider.component.html',
   styleUrls: ['./main-slider.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [CommonModule, NgOptimizedImage, MatButtonModule, RouterModule],
+  imports: [CommonModule, NgOptimizedImage, MatButtonModule, RouterModule, MatProgressSpinner],
   standalone: true
 })
 export class MainSliderComponent implements AfterViewInit {
-  @Output() bookTreatment = new EventEmitter<boolean>();
+  @Output() bookTreatment = new EventEmitter<boolean>(true);
   @ViewChild('swiperRef') swiperRef!: ElementRef;
 
   slideConfig = {
@@ -42,8 +43,10 @@ export class MainSliderComponent implements AfterViewInit {
   };
 
   homageBanners$ = this.getBanners();
+  displayBanners = false;
 
-  constructor(private dataService: DataService, private bookingService: BookingService, @Inject(PLATFORM_ID) private platformId: any) {
+
+  constructor(private dataService: DataService, private bookingService: BookingService, @Inject(PLATFORM_ID) private platformId: any,private cd: ChangeDetectorRef) {
     register();
   }
 
@@ -73,9 +76,12 @@ export class MainSliderComponent implements AfterViewInit {
     Object.assign(this.swiperRef!.nativeElement, params);
     if (typeof this.swiperRef.nativeElement.initialize === 'function') {
       this.swiperRef.nativeElement.initialize();
+      this.displayBanners = true;
+      this.cd.detectChanges();
     } else {
       console.warn('initialize method does not exist on the swiperRef.nativeElement object');
     }
+
   }
 
   getBanners(): Observable<HomePageSlider[]> {

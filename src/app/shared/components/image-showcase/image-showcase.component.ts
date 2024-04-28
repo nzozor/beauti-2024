@@ -1,4 +1,12 @@
-import {AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, Input, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  ElementRef,
+  Input,
+  ViewChild
+} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {register} from 'swiper/element/bundle';
@@ -24,8 +32,8 @@ export class ImageShowcaseComponent implements AfterViewInit {
   @Input() styles: any;
   @Input() gridRows: number = 1;
   @ViewChild('swiperRef') swiperRef!: ElementRef;
-
-  constructor() {
+  public displayBanners: boolean = false;
+  constructor(private cd: ChangeDetectorRef) {
     register();
   }
 
@@ -77,6 +85,8 @@ export class ImageShowcaseComponent implements AfterViewInit {
 
     if (typeof this.swiperRef.nativeElement.initialize === 'function') {
       this.swiperRef.nativeElement.initialize();
+      this.displayBanners = true;
+      this.cd.detectChanges();
     } else {
       console.warn('initialize method does not exist on the swiperRef.nativeElement object');
     }

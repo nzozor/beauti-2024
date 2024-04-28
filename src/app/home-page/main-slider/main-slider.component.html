@@ -1,15 +1,15 @@
-  <swiper-container #swiperRef  class="swiper-container" init="false" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" >
+<swiper-container #swiperRef  class="swiper-container" init="false" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" [class.loaded]="displayBanners" >
     <ng-container *ngIf="homageBanners$ | async as banners">
     <swiper-slide *ngFor="let slide of banners; index as i" class="slide" lazy="true">
       <div>
-        <img
-          *ngIf="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
-          [loading]="i !== 0? 'lazy' : undefined"
-          [ngSrc]="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
-          [priority]="i === 0"
-          alt="Beauti Promo"
-          fill="true"
-        />
+          <img [class.loaded]="displayBanners"
+            *ngIf="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
+            [loading]="i !== 0? 'lazy' : undefined"
+            [ngSrc]="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
+            [priority]="i === 0"
+            alt="Beauti Promo"
+            fill="true"
+          />
         <div class="slider-title">
 
           <div class="title1">{{ slide.title1 }}</div>

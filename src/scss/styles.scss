@@ -7,7 +7,11 @@
 
 
 swiper-container {
-  --swiper-preloader-color: white;
+  --swiper-preloader-color: transparent;
+  opacity: 0;
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 

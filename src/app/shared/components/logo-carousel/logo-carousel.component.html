@@ -1,4 +1,4 @@
-<swiper-container #swiperRef [ngStyle]="styles" class="swiper-container" init="false">
+<swiper-container #swiperRef [ngStyle]="styles" class="swiper-container" init="false" [class.loaded]="displayBanners">
   <swiper-slide *ngFor="let image of images" class="slide" lazy="true">
     <div>
       <img Loading="lazy" [alt]="image.alt?? 'logo Image'" [ngSrc]="image.url" [title]="image.title?? 'Logo Title'"
