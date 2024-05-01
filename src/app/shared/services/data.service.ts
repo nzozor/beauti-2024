@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Observable, zip} from 'rxjs';
+import {Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {TreatmentShowcase} from '../models/treatmentShowcase';
 
 import {catchError, map, switchMap} from 'rxjs/operators';
-import {environment} from '../../../environments/environment';
+import {environment} from '@environments/environment';
 import {HomePageSlider, HomePageSliderRaw} from '../models/homepageSlider.model';
 
 @Injectable({
@@ -55,6 +55,7 @@ export class DataService {
           .filter(banner => serverDate && banner.expirationDate ? new Date(serverDate).getTime() - new Date(banner.expirationDate).getTime() <= 0 : true)
           .filter(banner => serverDate && banner.publication ? new Date(serverDate).getTime() - new Date(banner.publication).getTime() >= 0 : true)
           .sort((a, b) => new Date(b.publication as Date).getTime() - new Date(a.publication as Date).getTime()).filter((banner) => !banner.hide)
+          .sort((a, b) => a.rank - b.rank);
         return filteredBanners.length > 0 ? filteredBanners : defaultBanner()
       })
     );

@@ -28,6 +28,7 @@ export interface HomePageSlider {
   title4?: "Beauti Skin Clinic Founder: Cinzia Campigotto",
   hide: boolean;
   isDefaultBanner: boolean;
+  rank: number;
 }
 
 export interface Image {

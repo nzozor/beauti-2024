@@ -3,23 +3,22 @@
     <swiper-slide *ngFor="let slide of banners; index as i" class="slide" lazy="true">
       <div>
           <img [class.loaded]="displayBanners"
-            *ngIf="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
+            *ngIf="getBackGroudImgRaw(slide?.image.data.attributes.formats.large.url, slide?.imgSmall.data.attributes.formats.small.url)"
             [loading]="i !== 0? 'lazy' : undefined"
-            [ngSrc]="getBackGroudImgRaw(slide.image.data.attributes.formats.large.url, slide.imgSmall.data.attributes.formats.small.url)"
+            [ngSrc]="getBackGroudImgRaw(slide?.image.data.attributes.formats.large.url, slide?.imgSmall.data.attributes.formats.small.url)"
             [priority]="i === 0"
             alt="Beauti Promo"
             fill="true"
           />
         <div class="slider-title">
-
-          <div class="title1">{{ slide.title1 }}</div>
-          <div class="semi-bold title2">{{ slide.title2 }}</div>
-          <div class="light title3">{{ slide.title3 }}</div>
-          <div *ngIf="slide?.title4" class="light title4">{{ slide.title4 }}</div>
+          <div class="title1">{{ slide?.title1 }}</div>
+          <div class="semi-bold title2">{{ slide?.title2 }}</div>
+          <div class="light title3">{{ slide?.title3 }}</div>
+          <div *ngIf="slide?.title4" class="light title4">{{ slide?.title4 }}</div>
         </div>
         <button
-          *ngIf="slide.findOutMoreUrl"
-          [routerLink]="slide.findOutMoreUrl"
+          *ngIf="slide?.findOutMoreUrl"
+          [routerLink]="slide?.findOutMoreUrl"
           class="main-button treatments"
           color="primary"
           mat-flat-button
@@ -28,14 +27,14 @@
         </button>
         <button
           (click)="openBooking()"
-          *ngIf="!slide.findOutMoreUrl"
+          *ngIf="!slide?.findOutMoreUrl"
           class="main-button treatments"
           color="primary"
           mat-flat-button
         >
           BOOK NOW
         </button>
-        <div class="asterisk">{{ slide.asterisk }}</div>
+        <div class="asterisk">{{ slide?.asterisk }}</div>
       </div>
     </swiper-slide>
     </ng-container>
