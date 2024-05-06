@@ -59,7 +59,7 @@ div {
 
 
 .title4 {
-  line-height: 30px;
+  line-height: 50px;
 }
 
 .title4 {
@@ -100,7 +100,9 @@ button {
       //@media (min-width: 1900px) {
       //  object-fit: contain;
       //}
-
+      @media(min-width: 1400px) {
+        object-fit: contain;
+      }
     }
 
     display: flex;
@@ -109,15 +111,13 @@ button {
     background-color: $banner-left-color;
     color: white;
     height: 100%;
-    padding: 3% 75px 0;
-    min-height: 500px;
+    background-position: 0;
+    padding: 3% 30px 2%;
 
-    @media (max-width: 768px) {
-      min-height: 390px;
-
-      padding: 5% 30px 0% 30px;
-      background-position: 0;
+    @media (min-width: 768px) {
+      padding: 3% 75px 2%;
     }
+
   }
 }
 

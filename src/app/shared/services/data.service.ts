@@ -23,7 +23,6 @@ export class DataService {
     return this.http.get<any>(`${this.beautiCmsUrl}/api/treaments?filters[slug][$eq]=${slug.toLowerCase()}&populate=*`).pipe(map(treatment => treatment.data[0].attributes));
   }
 
-
   getAboutUsPage(): Observable<{ Content: string }> {
     return this.http.get<{ Content: string }>(`${this.beautiCmsUrl}/api/about-us-page`).pipe(
       map((aboutUsData: any) => {

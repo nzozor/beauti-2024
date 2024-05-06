@@ -1,15 +1,14 @@
 import {CommonModule, isPlatformBrowser, NgOptimizedImage} from '@angular/common';
 import {
   AfterViewInit,
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA, ElementRef,
   EventEmitter,
-  Inject, OnInit,
+  Inject,
   Output,
   PLATFORM_ID, ViewChild
 } from '@angular/core';
-import {BehaviorSubject, delay, Observable} from 'rxjs';
 import {register} from 'swiper/element/bundle';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from "@angular/router";
@@ -17,6 +16,7 @@ import {DataService} from "@app/shared/services/data.service";
 import {BookingService} from "@app/shared/services/booking.service";
 import {HomePageSlider} from "@app/shared/models/homepageSlider.model";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-main-slider',
@@ -57,6 +57,10 @@ export class MainSliderComponent implements AfterViewInit {
   ngAfterViewInit() {
 
     const params = {
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
       injectStyles: [
         `
           @media (min-width: 768px) {
