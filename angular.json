@@ -29,7 +29,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/sitemap.xml",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/Favicon.jpg"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
