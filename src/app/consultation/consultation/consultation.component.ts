@@ -1,17 +1,17 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatDialog} from "@angular/material/dialog";
 import {FormModalComponent} from "../form-modal/form-modal.component";
 import {switchMap} from "rxjs/operators";
 import {SeoService} from "@app/shared/services/seo.service";
 import {DataService} from "@app/shared/services/data.service";
 import {CommonModule, NgIf, NgOptimizedImage} from "@angular/common";
-import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
+import {MatFormField, MatFormFieldModule, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatCheckbox} from "@angular/material/checkbox";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {BypassHtmlSecurityPipe} from "@app/shared/pipe/bypass-html-security.pipe";
-import {MatInput} from "@angular/material/input";
+import {MatInput, MatInputModule} from "@angular/material/input";
 
 
 @Component({
@@ -24,12 +24,14 @@ import {MatInput} from "@angular/material/input";
     NgOptimizedImage,
     NgIf,
     ReactiveFormsModule,
-    MatFormField,
+    MatFormFieldModule,
+    MatInputModule,
     MatCheckbox,
     MatSelect,
     MatOption,
     MatHint,
     CommonModule,
+    FormsModule,
     BypassHtmlSecurityPipe,
     MatInput,
     MatLabel
@@ -92,13 +94,13 @@ export class ConsultationComponent implements OnInit {
             data: {success: true},
           });
           this.resetForm();
-
         },
         // Error handling for either postConsultation or sendEmail
         () => {
           this.dialog.open(FormModalComponent, {
             data: {success: false},
           });
+          this.sendingFormInfo = false;
         },
         () => {
           this.sendingFormInfo = false;

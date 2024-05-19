@@ -2,14 +2,12 @@
   <ng-container *ngIf="data.success === true">
     <h3>Thank you for booking a consultation at Beauti Skin Clinic.</h3>
     <p>Our team will be in touch with you within 24 hours. </p>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" color="primary" fontIcon="home"></mat-icon>
     <a [mat-dialog-close]="true" class="close">
     </a>
   </ng-container>
   <ng-container *ngIf="data.success === false">
     <h3>An Error occurred while booking your consultation, please try again shortly.</h3>
     <p>Beauti Skin Clinic Team</p>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" color="primary" fontIcon="home"></mat-icon>
     <a [mat-dialog-close]="true" class="close">
     </a>
   </ng-container>

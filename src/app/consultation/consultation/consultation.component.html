@@ -81,7 +81,7 @@
     </div>
     <div class="row submit">
       <div>
-        <button [disabled]="sendingFormInfo" class="main-button mat-primary mat-flat-button"
+        <button [disabled]="sendingFormInfo" class="main-button mat-primary mat-flat-button send-button"
                 color="primary" form="consultation-form" type="submit">Send
         </button>
         <div *ngIf="!consultationForm.valid && consultationForm.dirty && sendBtnStatus === 'clicked'"
