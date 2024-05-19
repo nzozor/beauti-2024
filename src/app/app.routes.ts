@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import {HomePageComponent} from "./home-page/home-page.component";
-import {PageNotFoundComponent} from "./shared/components/page-not-found/page-not-found.component";
+import {PageNotFoundComponent} from "@app/shared/components/page-not-found/page-not-found.component";
 
 export const routes: Routes = [  {
   path: '',
@@ -26,6 +26,8 @@ export const routes: Routes = [  {
     path: 'contact',
     loadComponent: () => import('./contact/contact.component').then(x => x.ContactComponent)
   },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '404' },
 ];
 
 

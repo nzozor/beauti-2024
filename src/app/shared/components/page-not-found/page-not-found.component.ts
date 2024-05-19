@@ -9,14 +9,14 @@ import { isPlatformServer } from '@angular/common';
   styleUrls: ['./page-not-found.component.scss'],
   standalone: true
 })
-export class PageNotFoundComponent implements OnInit {
+  export class PageNotFoundComponent implements OnInit {
 
-  constructor(@Optional() @Inject(RESPONSE) private response: Response, @Inject(PLATFORM_ID) private platformId: any ) { }
+    constructor(@Optional() @Inject(RESPONSE) private response: Response, @Inject(PLATFORM_ID) private platformId: any ) { }
 
-  ngOnInit(): void {
-    if (isPlatformServer(this.platformId)) {
-      this.response.status(404);
+    ngOnInit(): void {
+      if (isPlatformServer(this.platformId)) {
+        this.response.status(404);
+      }
     }
-  }
 
-}
+  }
