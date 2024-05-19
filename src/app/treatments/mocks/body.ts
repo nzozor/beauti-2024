@@ -59,7 +59,7 @@ export const BODY_MASSAGE = [
 export const BODY_CONTOURING = [
   {
     title: `Fat and Cellulite Reduction`,
-    url: `Fat-and-Cellulite-Reduction`,
+    url: `fat-and-cellulite-reduction`,
     hasShowcase: true,
     description: ``,
     options: [

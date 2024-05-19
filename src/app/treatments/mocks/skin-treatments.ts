@@ -13,7 +13,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: 'Advanced Beauti Signature Relaxing Facial',
-    url: 'Advanced-Beauti-Signature-Relaxing-Facial',
+    url: 'advanced-beauti-signature-relaxing-facial',
     hasShowcase: true,
     treatment: `
     Choose from Radio Frequency, Skin Rejuvenation, LED Light Therapy.<br /> Add Dermaplaning for £30, (extra 15 mins)`,
@@ -30,7 +30,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: 'Aqua 3 Hydrotherapy Facial',
-    url: 'Aqua-3-Hydrotherapy-Facial',
+    url: 'aqua-3-hydrotherapy-facial',
     hasShowcase: true,
     treatment: `
     Choose from Deep-cleaning, Anti-Aging. <br />Add Black Head Extraction for £10, (extra 10 mins)
@@ -57,7 +57,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: `Skin Peel`,
-    url: `Skin-Peel`,
+    url: `skin-peel`,
     hasShowcase: true,
     treatment: `Add LED Light Therapy for £20, (extra 15 mins)`,
     description: ``,
@@ -80,7 +80,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: `Radio Frequency Skin Tightening`,
-    url: `Radio-Frequency-Skin-Tightening`,
+    url: `radio-frequency-skin-tightening`,
     treatment: `Add LED Light Therapy for £20, (extra 15 mins)<br /> Add Dermaplaning for £30, (extra 15 mins)	`,
     hasShowcase: true,
     description: ``,
@@ -93,7 +93,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: 'IPL Skin Rejuvenation',
-    url: 'IPL-Skin-Rejuvenation',
+    url: 'ipl-skin-rejuvenation',
     treatment: ``,
     hasShowcase: true,
     description: ``,
@@ -106,7 +106,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: 'Microneedling with Dermapen (Basic)',
-    url: 'Microneedling-with-Dermapen',
+    url: 'microneedling-with-dermapen',
     treatment: `Add Skin Booster for £50, (extra 5 mins)`,
     hasShowcase: true,
     description: ``,
@@ -118,7 +118,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: 'Microneedling with Dermapen (Complete)',
-    url: 'Microneedling-with-Dermapen',
+    url: 'microneedling-with-dermapen',
     treatment: `Add Skin Booster for £50, (extra 5 mins)`,
     hasShowcase: true,
     description: ``,
@@ -140,7 +140,7 @@ export const SKIN_TREATMENTS: any = [
   },
   {
     title: 'Skin Resurfacing',
-    url: 'Skin-Resurfacing',
+    url: 'skin-resurfacing',
     treatment: ``,
     hasShowcase: true,
     description: ``,

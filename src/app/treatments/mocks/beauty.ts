@@ -1,7 +1,7 @@
 export const BEAUTY_FACIAL = [
     {
         title: 'Beauti Signature Relaxing Facial',
-        url: 'Beauti-Signature-Relaxing-Facial',
+        url: 'beauti-signature-relaxing-facial',
         treatment: `Add Dermaplaning for £30, (extra 15 mins)`,
         hasShowcase: true,
         description: `Dermaplaning is a face shaving treatment believe to be

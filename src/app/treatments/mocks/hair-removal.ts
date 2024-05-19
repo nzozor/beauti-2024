@@ -1,6 +1,6 @@
 export const HAIR_REMOVAL_IPL_LASER = [{
   treatmentName: 'Laser Hair Removal',
-  url: 'Laser-Hair-Removal',
+  url: 'laser-hair-removal',
   hasShowcase: true,
   description: ``,
   options: [
@@ -218,7 +218,7 @@ export const HAIR_REMOVAL_ELECTRO = [
   {
     treatmentName: `Electrolysis`,
     title: `Electrolysis`,
-    url: `Electrolysis`,
+    url: `electrolysis`,
     hasShowcase: true,
     description: ``,
     options: [

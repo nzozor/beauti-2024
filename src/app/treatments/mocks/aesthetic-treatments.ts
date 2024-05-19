@@ -1,7 +1,7 @@
 export const AESTHETIC_TREATMENTS: any = [
   {
     title: 'Anti-Wrinkle Injections',
-    url: 'Anti-Wrinkle-Injections',
+    url: 'anti-wrinkle-injections',
     treatment: ``,
     hasShowcase: true,
     description: ``,
@@ -65,7 +65,7 @@ export const AESTHETIC_TREATMENTS: any = [
   },
   {
     title: 'Dermal Fillers',
-    url: 'Dermal-Fillers',
+    url: 'dermal-fillers',
     treatment: ``,
     hasShowcase: true,
     description: ``,
@@ -105,7 +105,7 @@ export const AESTHETIC_TREATMENTS: any = [
   },
   {
     title: `Profhilo - Skin Booster, known as "Injectable Moisturiser"`,
-    url: 'Profhilo',
+    url: 'profhilo',
     hasShowcase: true,
     treatment: ``,
     description: ``,
@@ -140,7 +140,7 @@ export const AESTHETIC_TREATMENTS: any = [
   },
   {
     title: `Jalupro - Skin Booster`,
-    url: 'Jalupro',
+    url: 'jalupro',
     hasShowcase: true,
     treatment: ``,
     description: ``,
@@ -244,7 +244,7 @@ export const AESTHETIC_TREATMENTS: any = [
   },
   {
     title: `Fat Dissolving Injections`,
-    url: `Fat-Dissolving-Injections`,
+    url: `fat-dissolving-injections`,
     hasShowcase: true,
     treatment: ``,
     description: ``,
@@ -279,7 +279,7 @@ export const AESTHETIC_TREATMENTS: any = [
   },
   {
     title: `PRP Vampire Facial`,
-    url: `PRP-Vampire-Facial`,
+    url: `prp-vampire-facial`,
     hasShowcase: true,
     treatment: ``,
     description: ``,
@@ -306,7 +306,7 @@ export const AESTHETIC_TREATMENTS: any = [
   },
   {
     title: `PRP Hair Loss Treatment`,
-    url: `PRP-Hair-Loss-Treatment`,
+    url: `prp-hair-loss-treatment`,
     hasShowcase: true,
     treatment: ``,
     description: ``,
