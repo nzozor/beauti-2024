@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatDialog} from "@angular/material/dialog";
@@ -7,18 +7,18 @@ import {switchMap} from "rxjs/operators";
 import {SeoService} from "@app/shared/services/seo.service";
 import {DataService} from "@app/shared/services/data.service";
 import {CommonModule, NgIf, NgOptimizedImage} from "@angular/common";
-import {MatFormField, MatFormFieldModule, MatHint, MatLabel} from "@angular/material/form-field";
+import { MatFormFieldModule, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatCheckbox} from "@angular/material/checkbox";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {BypassHtmlSecurityPipe} from "@app/shared/pipe/bypass-html-security.pipe";
 import {MatInput, MatInputModule} from "@angular/material/input";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 
 @Component({
   selector: 'app-consultation',
   templateUrl: './consultation.component.html',
   styleUrls: ['./consultation.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
     NgOptimizedImage,
@@ -34,7 +34,8 @@ import {MatInput, MatInputModule} from "@angular/material/input";
     FormsModule,
     BypassHtmlSecurityPipe,
     MatInput,
-    MatLabel
+    MatLabel,
+    MatProgressSpinner
   ]
 })
 export class ConsultationComponent implements OnInit {
@@ -94,13 +95,14 @@ export class ConsultationComponent implements OnInit {
             data: {success: true},
           });
           this.resetForm();
+
         },
         // Error handling for either postConsultation or sendEmail
         () => {
+          this.sendingFormInfo = false;
           this.dialog.open(FormModalComponent, {
             data: {success: false},
           });
-          this.sendingFormInfo = false;
         },
         () => {
           this.sendingFormInfo = false;
