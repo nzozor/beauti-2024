@@ -97,10 +97,7 @@ button {
       object-position: right;
       max-height: 600px;
       width: 100%!important;
-      //@media (min-width: 1900px) {
-      //  object-fit: contain;
-      //}
-      @media(min-width: 1400px) {
+      @media(min-width: 1700px) {
         object-fit: contain;
       }
     }
@@ -117,7 +114,6 @@ button {
     @media (min-width: 768px) {
       padding: 5% 75px 3%;
     }
-
   }
 }
 
