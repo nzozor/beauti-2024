@@ -213,7 +213,7 @@ export const AESTHETIC_TREATMENTS: any = [
     ]
   },
   {
-    title: `Polynucleotide Injectables`,
+    title: `Polynucleotide Injectables - Skin Booster`,
     url: 'polynucleotide-injectables',
     treatment: ``,
     hasShowcase: true,
