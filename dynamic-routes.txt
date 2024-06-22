@@ -27,4 +27,3 @@
 /contact
 /treatments
 /consultation
-/

@@ -11,7 +11,6 @@ axios
 		routes.push("/contact");
 		routes.push("/treatments");
 		routes.push("/consultation");
-		routes.push("/");
 		routes = routes.join("\r\n");
 		writeToFile(routes);
 	})
