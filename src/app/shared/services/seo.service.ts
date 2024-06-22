@@ -19,17 +19,23 @@ export class SeoService {
   }
 
   public setTitle(newTitle: string) {
+    this.doc.querySelector('title')?.remove();
     this.titleService.setTitle(`${newTitle}`);
   }
 
   public setMeta(meta: MetaDefinition[]) {
+    this.doc.querySelector('meta[name="description"]')?.remove();
     this.meta.addTags(meta);
   }
 
   public setDefaultMeta() {
+    this.doc.querySelector('title')?.remove();
+
     this.titleService.setTitle(
       this.defaultTitle
     );
+    this.doc.querySelector('meta[name="description"]')?.remove();
+
     this.meta.addTags([
       {
         name: 'description',

@@ -4,6 +4,8 @@ export interface TreatmentShowcase {
   slug: string;
   Content: string;
   parent: TreatmentShowcase;
+  metaTitle: string;
+  metaDescription: string;
 }
 
 export interface TreatmentImages {

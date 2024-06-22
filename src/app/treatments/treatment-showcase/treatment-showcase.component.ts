@@ -70,11 +70,11 @@ export class TreatmentShowcaseComponent implements OnInit, OnDestroy {
       .pipe(
         tap((treatment) => {
           this.seo.setTitle(
-            treatment?.title
+            treatment?.metaTitle || treatment?.title
           );
           this.seo.setMeta([{
             name: 'description',
-            content: `${treatment?.title} | ${this.seo.defaultMetaContent}`,
+            content: treatment?.metaDescription || `${treatment?.title} | ${this.seo.defaultMetaContent}`,
           }]);
           this.imageUrl = this.getImageUrl(treatment) ? this.getImageUrl(treatment) : ''
         }))

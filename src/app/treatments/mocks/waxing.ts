@@ -15,20 +15,7 @@ export const WAX_DATA = [
           {key: 'Underarm', value: '£20'},
           {key: 'Upper leg', value: '£30'},
         ]
-      },
-      {
-        treatment: `Men's Waxing`,
-        options: [
-          {key: 'Boyzillian (S&C)', value: '£60'},
-          {key: 'Buttock Crack', value: '£25'},
-          {key: 'Buttocks', value: '£35'},
-          {key: 'Full Back', value: '£40'},
-          {key: 'Full Body', value: '£160'},
-          {key: 'Full Chest', value: '£29'},
-          {key: 'Full Stomach', value: '£25'},
-        ]
-      },
-
+      }
     ]
   }
 ];
