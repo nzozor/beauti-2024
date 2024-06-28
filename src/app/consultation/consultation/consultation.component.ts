@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {tap} from "rxjs";
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatDialog} from "@angular/material/dialog";
 import {FormModalComponent} from "../form-modal/form-modal.component";
@@ -50,7 +50,17 @@ export class ConsultationComponent implements OnInit {
 
   });
 
-  consultationContent$: Observable<any> = this.dataService.getConsultationPage();
+  consultationContent$ = this.dataService.getConsultationPage().pipe(
+    tap((content) => {
+      this.seo.setTitle(
+        content?.metaTitle || 'Consultation | Aesthetic and Skin Consultation in South London'
+      );
+      this.seo.setMeta([{
+        name: 'description',
+        content: content?.metaDescription || this.seo.defaultMetaContent,
+      }]);
+    })
+  );
   sendBtnStatus!: 'clicked' | 'pristine';
   sendingFormInfo = false;
   displayFunnelInput = false;

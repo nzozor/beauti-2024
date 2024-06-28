@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // cmsUrl: 'http://localhost:1339',
-  cmsUrl: 'https://cms.tracksdigital.com',
+  cmsUrl: 'http://localhost:1339',
+  // cmsUrl: 'https://cms.tracksdigital.com',
 
   dateApi: "https://date.tracksdigital.com",
   mailService: "http://localhost:3002"

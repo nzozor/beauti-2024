@@ -6,6 +6,8 @@ import {TreatmentShowcase} from '../models/treatmentShowcase';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {environment} from '@environments/environment';
 import {HomePageSlider, HomePageSliderRaw} from '../models/homepageSlider.model';
+import {SectionData, TreatmentSection} from "@app/shared/models/section.model";
+import {ConsultationAttributes, ConsultationDTO} from "@app/shared/models/consultation.model";
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +33,9 @@ export class DataService {
     );
   }
 
-  getConsultationPage(): Observable<{ Content: string }> {
-    return this.http.get<{ Content: string }>(`${this.beautiCmsUrl}/api/consultation-page`).pipe(
-      map((response: any) => {
+  getConsultationPage(): Observable<ConsultationAttributes> {
+    return this.http.get<ConsultationDTO>(`${this.beautiCmsUrl}/api/consultation-page?populate=*`).pipe(
+      map((response) => {
         return response.data.attributes;
       })
     );
@@ -61,9 +63,12 @@ export class DataService {
   }
 
 
-  getTreatmentSections(): Observable<[]> {
-    return this.http.get(`${this.beautiCmsUrl}/api/sections?populate=*`).pipe(
-      map((response: any) => {
+  getTreatmentSections(): Observable<SectionData[]> {
+    return this.http.get<TreatmentSection>(`${this.beautiCmsUrl}/api/sections?populate=*`).pipe(
+      map((response) => {
+        for(let sectionRoot of response.data) {
+          sectionRoot.attributes.section = response.data[sectionRoot.id]
+        }
         return response.data;
       }),
       // map((sections: any[]) => this.transformSectionWithHierarchy(sections))
