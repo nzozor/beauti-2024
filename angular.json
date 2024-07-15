@@ -39,6 +39,7 @@
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": {
+              "discoverRoutes": false,
               "routesFile": "dynamic-routes.txt"
             },
             "ssr": {
