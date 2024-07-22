@@ -104,6 +104,45 @@ export const AESTHETIC_TREATMENTS: any = [
     ]
   },
   {
+      title: `UltraRegenerative"`,
+    url: 'ultra-regenerative',
+    hasShowcase: true,
+    treatment: ``,
+    description: ``,
+    orientation: 'row',
+    fullOptions: 'true',
+    options: [
+      {
+        treatment: '',
+        options: [
+          {key: '   Duration', value: ''},
+          {key: '   Single', value: ''},
+        ]
+      },
+      {
+        treatment: `    Neck`,
+        options: [
+          {key: '', value: '    60 min'},
+          {key: '', value: '    £300'},
+        ]
+      },
+      {
+        treatment: `    Face`,
+        options: [
+          {key: '', value: '    90 min'},
+          {key: '', value: '    £500'},
+        ]
+      },
+      {
+        treatment: `Face and Neck`,
+        options: [
+          {key: '', value: '    90 min'},
+          {key: '', value: '£600'},
+        ]
+      },
+    ]
+  },
+  {
     title: `Profhilo - Skin Booster, known as "Injectable Moisturiser"`,
     url: 'profhilo',
     hasShowcase: true,
@@ -227,7 +266,13 @@ export const AESTHETIC_TREATMENTS: any = [
           {key: '   Duration', value: ''},
           {key: '   1ml', value: ''},
           {key: '   2ml', value: ''},
-          {key: '   4ml', value: ''},
+          {key: '   3ml', value: ''},
+          {
+            key: '   4ml', value: ''
+          },
+          {
+            key: '   5ml', value: ''
+          }
 
         ]
       },
@@ -237,7 +282,9 @@ export const AESTHETIC_TREATMENTS: any = [
           {key: '', value: '45min'},
           {key: '', value: '£250'},
           {key: '', value: '£300'},
+          {key: '', value: '£450'},
           {key: '', value: '£500'},
+          {key: '', value: '£650'},
         ]
       }
     ]
