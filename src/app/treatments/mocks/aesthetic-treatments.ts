@@ -104,7 +104,7 @@ export const AESTHETIC_TREATMENTS: any = [
     ]
   },
   {
-      title: `UltraRegenerative"`,
+      title: `UltraRegenerative`,
     url: 'ultra-regenerative',
     hasShowcase: true,
     treatment: ``,
