@@ -8,7 +8,6 @@ axios
 		routes = res;
 		routes = routes.data.data.map((route) => `/treatments/${route.attributes.slug}`);
 		routes.push("/about-us");
-		routes.push("/");
 		routes.push("/contact");
 		routes.push("/treatments");
 		routes.push("/consultation");
