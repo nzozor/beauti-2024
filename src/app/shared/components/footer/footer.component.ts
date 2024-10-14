@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {InstaComponent} from "../svg/insta/insta.component";
 import {BeautiLogoComponent} from "../beauti-logo/beauti-logo.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,7 @@ import {BeautiLogoComponent} from "../beauti-logo/beauti-logo.component";
   styleUrls: ['./footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports:[InstaComponent, BeautiLogoComponent]
+  imports: [InstaComponent, BeautiLogoComponent, RouterLink]
 })
 
 export class FooterComponent {

@@ -1,0 +1,13 @@
+
+<ng-container *ngIf="privacyPolicy$ | async as privacyPolicy">
+
+  <div class="outer">
+    <div class="container privacy-policy">
+      <h1>Privacy & Terms</h1>
+      <div [innerHTML]="privacyPolicy" class="showcase-content"></div>
+    </div>
+  </div>
+
+</ng-container>
+
+<div [innerHTML]="test"></div>

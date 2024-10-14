@@ -26,6 +26,10 @@ export const routes: Routes = [  {
     path: 'contact',
     loadComponent: () => import('./contact/contact.component').then(x => x.ContactComponent)
   },
+  {
+    path: 'privacy-policy',
+    loadComponent: () => import('./privacy-policy/privacy-policy.component').then(x => x.PrivacyPolicyComponent)
+  },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' },
 ];

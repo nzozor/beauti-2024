@@ -46,6 +46,7 @@ export class ConsultationComponent implements OnInit {
     email: ['', Validators.email],
     message: ['', Validators.required],
     firstTimeCustomer: [false, Validators.required],
+    privqcyPolicy: ['', Validators.required],
     funnel: [''],
 
   });
@@ -83,7 +84,8 @@ export class ConsultationComponent implements OnInit {
     })
   }
 
-  onFormSubmit() {
+  onFormSubmit(event: Event) {
+    event.stopPropagation();
     this.sendBtnStatus = 'clicked';
     if (this.consultationForm.valid) {
       this.sendingFormInfo = true;
