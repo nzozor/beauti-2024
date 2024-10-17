@@ -13,6 +13,8 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {BypassHtmlSecurityPipe} from "@app/shared/pipe/bypass-html-security.pipe";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {RouterLink} from "@angular/router";
+import {PrivacyModalComponent} from "@app/privacy-policy/privacy-modal/privacy-modal.component";
 
 
 @Component({
@@ -35,10 +37,12 @@ import {MatProgressSpinner} from "@angular/material/progress-spinner";
     BypassHtmlSecurityPipe,
     MatInput,
     MatLabel,
-    MatProgressSpinner
+    MatProgressSpinner,
+    RouterLink
   ]
 })
 export class ConsultationComponent implements OnInit {
+
   consultationForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -121,6 +125,10 @@ export class ConsultationComponent implements OnInit {
         }
       );
     }
+  }
+
+  openPrivacyTerm() {
+    this.dialog.open(PrivacyModalComponent);
   }
 
   private resetForm() {

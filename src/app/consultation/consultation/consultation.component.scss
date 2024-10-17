@@ -46,7 +46,6 @@ p {
   background-color: $beauti-grey;
 }
 
-
 .beauti {
   margin-bottom: 40px;
 
@@ -103,15 +102,9 @@ form {
         justify-content: center;
       }
     }
-
-    &.first-time-consumer {
-      margin-bottom: 15px;
-    }
   }
 
   .mat-mdc-checkbox {
-
-
     ::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background, .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background {
       background-color: $grey-black !important;
       border-color: $grey-black !important;
@@ -142,7 +135,7 @@ form {
 
   .error-hint {
     margin-top: 20px;
-
+    text-align: center;
     mat-hint {
       color: red;
     }
@@ -169,5 +162,13 @@ form {
 mat-spinner ::ng-deep {
   .mdc-circular-progress__indeterminate-circle-graphic {
     stroke: #a29ba0;
+  }
+}
+
+.privacy-policy-checkbox {
+  a {
+    &:visited {
+      color: inherit;
+    }
   }
 }

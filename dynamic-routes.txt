@@ -11,7 +11,6 @@
 /treatments/ipl-skin-rejuvenation
 /treatments/jalupro
 /treatments/laser-hair-removal
-/treatments/mesotherapy
 /treatments/microneedling-with-dermapen
 /treatments/prp-hair-loss-treatment
 /treatments/prp-vampire-facial
@@ -23,6 +22,7 @@
 /treatments/skin-resurfacing
 /treatments/tribella
 /treatments/skin-consultation
+/treatments/beauti-advanced-bespoke-facial
 /about-us
 /contact
 /treatments
