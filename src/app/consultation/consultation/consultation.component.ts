@@ -49,8 +49,8 @@ export class ConsultationComponent implements OnInit {
     contactNumber: ['', Validators.required],
     email: ['', Validators.email],
     message: ['', Validators.required],
-    firstTimeCustomer: [false, Validators.required],
-    privqcyPolicy: ['', Validators.required],
+    firstTimeCustomer: [false],
+    privacyPolicy: ['', Validators.required],
     funnel: [''],
 
   });
