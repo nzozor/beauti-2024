@@ -9,7 +9,6 @@
   color: #fff;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 13px;
-  min-width: initial !important;
 
   &.mat-primary {
     border-radius: 2px;
@@ -28,5 +27,20 @@
     height: 41px;
     color: $grey-black;
     border: 1px solid $grey-black;
+  }
+}
+
+.alumier-shop {
+  margin-right: 20px;
+  font-family: 'Nunito Sans', sans-serif;
+  justify-content: space-between;
+  text-decoration: none;
+  button.alumier-button {
+    min-width: 202.9px;
+
+  }
+  img {
+    margin-left: 10px;
+    width: 75px;
   }
 }

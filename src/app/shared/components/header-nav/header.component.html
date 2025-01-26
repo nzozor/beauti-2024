@@ -17,14 +17,29 @@
       <li><a routerLink="/consultation" aria-label="Beauti Consultation page">CONSULTATION</a></li>
       <li><a routerLink="/contact" aria-label="Beauti Contact page">CONTACT</a></li>
     </ul>
-    <button
-      (click)="openBooking()"
-      class="main-button"
-      color="primary"
-      mat-flat-button
-    >
-      Book now
-    </button>
+
+    <div class="cta-section">
+      <a href="https://uk.alumiermd.com?code=0E6A3577" target="_blank" class="alumier-shop">
+        <button
+          class="main-button alumier-button"
+          color="primary"
+          mat-flat-button
+        >
+          <div class="title">
+            Shop
+          </div>
+          <img src="assets/alumier.svg" alt="Alumiermd product">
+        </button>
+      </a>
+      <button
+        (click)="openBooking()"
+        class="main-button"
+        color="primary"
+        mat-flat-button
+      >
+        Book now
+      </button>
+    </div>
 
     <div class="mobile-menu"></div>
   </div>

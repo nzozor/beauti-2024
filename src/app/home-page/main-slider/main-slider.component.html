@@ -2,7 +2,7 @@
     <ng-container *ngIf="homageBanners$ | async as banners">
     <swiper-slide *ngFor="let slide of banners; index as i" class="slide" lazy="true">
       <div>
-          <img [class.loaded]="displayBanners"
+          <img class='swiper-img' [class.loaded]="displayBanners"
             *ngIf="getBackGroudImgRaw(slide?.image.data.attributes.formats.large.url, slide?.imgSmall.data.attributes.formats.small.url)"
             [loading]="i !== 0? 'lazy' : undefined"
             [ngSrc]="getBackGroudImgRaw(slide?.image.data.attributes.formats.large.url, slide?.imgSmall.data.attributes.formats.small.url)"
@@ -16,6 +16,7 @@
           <div class="light title3">{{ slide?.title3 }}</div>
           <div *ngIf="slide?.title4" class="light title4">{{ slide?.title4 }}</div>
         </div>
+
         <button
           *ngIf="slide?.findOutMoreUrl"
           [routerLink]="slide?.findOutMoreUrl"
@@ -25,6 +26,18 @@
         >
           FIND OUT MORE
         </button>
+        <a href="https://uk.alumiermd.com?code=0E6A3577" target="_blank" class="alumier-shop">
+          <button
+            class="main-button alumier-button"
+            color="primary"
+            mat-flat-button
+          >
+            <div>
+              Shop
+            </div>
+            <img src="assets/alumier.svg" alt="Alumiermd product">
+          </button>
+        </a>
         <button
           (click)="openBooking()"
           *ngIf="!slide?.findOutMoreUrl"

@@ -109,3 +109,23 @@ app-menu-link.active {
   position: absolute;
   height: 100vh;
 }
+
+.cta-section {
+  button.alumier-button {
+    display: none;
+    @media screen and (min-width: 1345px) {
+      display: initial;
+    }
+    ::ng-deep > span {
+      div {
+        font-family: 'Nunito Sans', sans-serif;
+        position: relative!important;
+        top: 2px;
+        color: black;
+      }
+      font-family: 'Nunito Sans', sans-serif;
+      color: #0f0f0f;
+      font-weight: 600;
+    }
+  }
+}

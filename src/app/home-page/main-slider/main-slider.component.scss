@@ -90,7 +90,7 @@ button {
     }
 
     position: relative;
-    img {
+    img.swiper-img {
       object-fit: cover;
       top: 0;
       right: 0;
@@ -110,6 +110,7 @@ button {
     height: 100%;
     background-position: 0;
     padding: 3% 30px 2%;
+
 
     @media (min-width: 768px) {
       padding: 5% 75px 3%;
@@ -145,4 +146,26 @@ swiper-container {
   &.loaded {
     opacity: 1;
   }
+}
+
+.alumier-shop {
+  min-width: 202.9px;
+    button.alumier-button {
+      margin: 0 0 20px;
+      @media screen and (min-width: 1345px) {
+        display: none;
+      }
+      ::ng-deep > span {
+        div {
+          text-transform: uppercase;
+          font-family: 'Nunito Sans', sans-serif;
+          position: relative!important;
+          top: 2px;
+          color: black;
+        }
+        font-family: 'Nunito Sans', sans-serif;
+        color: #0f0f0f;
+        font-weight: 600;
+      }
+    }
 }
