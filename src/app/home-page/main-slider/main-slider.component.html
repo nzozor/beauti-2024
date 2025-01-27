@@ -3,9 +3,9 @@
     <swiper-slide *ngFor="let slide of banners; index as i" class="slide" lazy="true">
       <div>
           <img class='swiper-img' [class.loaded]="displayBanners"
-            *ngIf="getBackGroudImgRaw(slide?.image.data.attributes.formats.large.url, slide?.imgSmall.data.attributes.formats.small.url)"
+            *ngIf="getBackGroudImgRaw(slide?.image.data.attributes.url!, slide?.imgSmall.data.attributes.formats.small.url)"
             [loading]="i !== 0? 'lazy' : undefined"
-            [ngSrc]="getBackGroudImgRaw(slide?.image.data.attributes.formats.large.url, slide?.imgSmall.data.attributes.formats.small.url)"
+            [ngSrc]="getBackGroudImgRaw(slide?.image.data.attributes.url!, slide?.imgSmall.data.attributes.formats.small.url)"
             [priority]="i === 0"
             alt="Beauti Promo"
             fill="true"
