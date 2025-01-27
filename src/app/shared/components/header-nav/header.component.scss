@@ -1,3 +1,6 @@
+@import 'src/scss/_buttons.scss';
+
+
 app-burger-menu {
   display: none;
   width: 175px;
@@ -23,13 +26,21 @@ app-burger-menu {
     @media (max-width: 574px) {
       padding: 10px 0;
       app-beauti-logo {
+
+
         ::ng-deep svg {
           width: initial;
           height: 25px;
         }
       }
     }
-
+    app-beauti-logo {
+      @media (max-width: 1200px) {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
 
     > div {
       display: flex;
@@ -80,20 +91,13 @@ button {
   text-transform: uppercase;
   overflow: hidden;
   text-overflow: ellipsis;
-  opacity: 0;
+
 
   &.main-button {
     width: 177px;
-
-    @media (min-width: 1024px) {
-      opacity: 1;
-    }
-
-    @media (max-width: 767px) {
-      display: none;
-    }
   }
 }
+
 
 .mobile-menu {
   width: 50px;
@@ -111,21 +115,9 @@ app-menu-link.active {
 }
 
 .cta-section {
-  button.alumier-button {
-    display: none;
-    @media screen and (min-width: 1345px) {
-      display: initial;
-    }
-    ::ng-deep > span {
-      div {
-        font-family: 'Nunito Sans', sans-serif;
-        position: relative!important;
-        top: 2px;
-        color: black;
-      }
-      font-family: 'Nunito Sans', sans-serif;
-      color: #0f0f0f;
-      font-weight: 600;
-    }
+  @include alumier-button;
+  display: none;
+  @media (min-width: 1316px) {
+    display: block;
   }
 }

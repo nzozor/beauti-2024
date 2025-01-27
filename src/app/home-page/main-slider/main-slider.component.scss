@@ -1,4 +1,5 @@
 @import "../../../scss/palette";
+@import 'src/scss/_buttons.scss';
 
 h1 {
   line-height: 1em;
@@ -147,25 +148,18 @@ swiper-container {
     opacity: 1;
   }
 }
+button.main-button {
+  border: none;
+}
 
-.alumier-shop {
-  min-width: 202.9px;
-    button.alumier-button {
-      margin: 0 0 20px;
-      @media screen and (min-width: 1345px) {
-        display: none;
-      }
-      ::ng-deep > span {
-        div {
-          text-transform: uppercase;
-          font-family: 'Nunito Sans', sans-serif;
-          position: relative!important;
-          top: 2px;
-          color: black;
-        }
-        font-family: 'Nunito Sans', sans-serif;
-        color: #0f0f0f;
-        font-weight: 600;
-      }
+.alumier-section {
+  @include alumier-button;
+  button.alumier-button {
+    min-width: 200px;
+    margin-top: 0;
+    display: initial;
+    @media screen and (min-width: 1345px) {
+      display: none!important;
     }
+  }
 }

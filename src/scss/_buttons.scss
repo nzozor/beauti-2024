@@ -2,12 +2,12 @@
 
 .main-button, .mat-stroked-button {
 
-  text-transform: uppercase;
+  text-transform: uppercase!important;
   overflow: hidden;
   text-overflow: ellipsis;
   border: 1px solid #fff;
   color: #fff;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Nunito Sans', sans-serif!important;
   font-size: 13px;
 
   &.mat-primary {
@@ -30,17 +30,41 @@
   }
 }
 
-.alumier-shop {
-  margin-right: 20px;
-  font-family: 'Nunito Sans', sans-serif;
-  justify-content: space-between;
-  text-decoration: none;
-  button.alumier-button {
-    min-width: 202.9px;
+@mixin alumier-button {
+  .alumier-shop {
+    margin-right: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+    justify-content: space-between;
+    text-decoration: none;
 
+    button.alumier-button {
+      max-width: 175px;
+
+      ::ng-deep > span.mdc-button__label {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #0f0f0f;
+        font-weight: 600;
+        div {
+          font-family: 'Nunito Sans', sans-serif;
+          position: relative!important;
+          top: 2px;
+          color: black;
+          font-size: 12px;
+        }
+
+      }
+    }
+
+    img {
+      margin-left: 10px;
+      width: 70px;
+    }
   }
-  img {
-    margin-left: 10px;
-    width: 75px;
-  }
+
 }
+
+
