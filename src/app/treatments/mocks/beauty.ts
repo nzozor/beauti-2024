@@ -15,7 +15,7 @@ export const BEAUTY_FACIAL = [
         add a hydration mask to give your skin a beautiful glow and softer skin. Suitable for all skin types.`,
         options: [
             { key: 'Duration', value: '60 mins' },
-            { key: 'Single', value: '£110' },
+            { key: 'Single', value: '£120' },
         ],
         new: true
     },

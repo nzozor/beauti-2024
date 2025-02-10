@@ -61,6 +61,30 @@ export const AESTHETIC_TREATMENTS: any = [
           {key: 'Single', value: '£250'},
         ]
       },
+      {
+        treatment: `Nose (bunny lines )`,
+        description: ``,
+        options: [
+          {key: 'Duration', value: '60 mins'},
+          {key: 'Single', value: '£200'},
+        ]
+      },
+      {
+        treatment: `Trapezium (shouders)`,
+        description: ``,
+        options: [
+          {key: 'Duration', value: '60 mins'},
+          {key: 'Single', value: '£600'},
+        ]
+      },
+      {
+        treatment: `excessive sweating (hyperhidrosis)`,
+        description: ``,
+        options: [
+          {key: 'Duration', value: '60 mins'},
+          {key: 'Single', value: '£450'},
+        ]
+      },
     ]
   },
   {
